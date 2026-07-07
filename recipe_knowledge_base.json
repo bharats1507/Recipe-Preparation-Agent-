@@ -1,0 +1,3881 @@
+{
+  "schema_info": {
+    "description": "Knowledge source for Recipe Preparation Agent RAG pipeline. Each object is one retrievable document/chunk. Embed the 'embedding_text' field using watsonx.ai embeddings (e.g., slate-125m-english-rtrvr) and store the full object as metadata for retrieval-augmented generation with IBM Granite.",
+    "total_recipes": 107,
+    "fields": {
+      "id": "unique recipe identifier",
+      "title": "recipe name",
+      "cuisine": "cuisine category",
+      "diet_tags": "array of applicable diet tags",
+      "core_ingredients": "essential ingredients required",
+      "optional_ingredients": "ingredients that enhance but aren't essential",
+      "common_substitutions": "map of ingredient -> possible substitute(s)",
+      "prep_time_minutes": "estimated prep time",
+      "cook_time_minutes": "estimated cook time",
+      "servings": "default servings",
+      "instructions": "ordered step-by-step instructions",
+      "cooking_tips": "array of helpful tips",
+      "embedding_text": "flattened text used to generate the vector embedding for retrieval"
+    }
+  },
+  "recipes": [
+    {
+      "id": "R001",
+      "title": "Vegetable Pulao",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "mixed vegetables",
+        "onion",
+        "whole spices",
+        "oil"
+      ],
+      "optional_ingredients": [
+        "ghee",
+        "cashews",
+        "peas",
+        "mint"
+      ],
+      "common_substitutions": {
+        "ghee": "vegetable oil",
+        "cashews": "peanuts or omit"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 4,
+      "instructions": [
+        "Soak rice for 20 minutes.",
+        "Heat oil, add whole spices until fragrant.",
+        "Add onion, saute until golden.",
+        "Add vegetables, saute 3-4 minutes.",
+        "Add rice, water (1:2), salt; bring to boil.",
+        "Cover, simmer 15-18 minutes.",
+        "Fluff and garnish before serving."
+      ],
+      "cooking_tips": [
+        "Soaking rice prevents breakage.",
+        "Avoid over-stirring to prevent mushiness."
+      ],
+      "embedding_text": "Vegetable Pulao Indian vegetarian vegan gluten-free dairy-free rice mixed vegetables onion whole spices oil ghee cashews peas mint"
+    },
+    {
+      "id": "R002",
+      "title": "Paneer Fried Rice",
+      "cuisine": "Indo-Chinese",
+      "diet_tags": [
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "cooked rice",
+        "paneer",
+        "capsicum",
+        "spring onion",
+        "soy sauce",
+        "garlic"
+      ],
+      "optional_ingredients": [
+        "carrot",
+        "sesame oil"
+      ],
+      "common_substitutions": {
+        "paneer": "tofu or potato cubes",
+        "soy sauce": "tamari",
+        "capsicum": "cabbage"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Shallow fry paneer cubes; set aside.",
+        "Saute garlic and onion whites on high flame.",
+        "Add chopped vegetables, stir-fry 2 minutes.",
+        "Add cold rice and soy sauce, toss on high heat.",
+        "Add fried paneer, garnish with spring onion."
+      ],
+      "cooking_tips": [
+        "Use day-old rice for best texture.",
+        "Cook on high flame for smoky flavor."
+      ],
+      "embedding_text": "Paneer Fried Rice Indo-Chinese vegetarian cooked rice paneer capsicum spring onion soy sauce garlic carrot sesame oil"
+    },
+    {
+      "id": "R003",
+      "title": "Tomato Onion Rice",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "tomato",
+        "onion",
+        "garlic",
+        "mustard seeds",
+        "curry leaves"
+      ],
+      "optional_ingredients": [
+        "peanuts",
+        "green chili"
+      ],
+      "common_substitutions": {
+        "curry leaves": "bay leaf or omit",
+        "mustard seeds": "cumin seeds"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Cook rice and cool.",
+        "Heat oil, splutter mustard seeds and curry leaves.",
+        "Saute onion and garlic until translucent.",
+        "Add tomatoes, cook until soft.",
+        "Add spices and salt, mix in rice."
+      ],
+      "cooking_tips": [
+        "Mash tomatoes for a richer base.",
+        "Great use for slightly stale rice."
+      ],
+      "embedding_text": "Tomato Onion Rice South Indian vegetarian vegan gluten-free rice tomato onion garlic mustard seeds curry leaves peanuts green chili"
+    },
+    {
+      "id": "R004",
+      "title": "Curd Rice",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "cooked rice",
+        "yogurt",
+        "mustard seeds",
+        "curry leaves"
+      ],
+      "optional_ingredients": [
+        "pomegranate",
+        "cucumber",
+        "green chili"
+      ],
+      "common_substitutions": {
+        "curd": "dairy-free yogurt",
+        "curry leaves": "omit"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 5,
+      "servings": 2,
+      "instructions": [
+        "Mash warm rice slightly.",
+        "Mix in curd and a little milk.",
+        "Temper mustard seeds and curry leaves in oil.",
+        "Pour tempering over rice, mix, season with salt."
+      ],
+      "cooking_tips": [
+        "Mix curd into warm (not hot) rice for best texture.",
+        "Ideal for leftover rice."
+      ],
+      "embedding_text": "Curd Rice South Indian vegetarian gluten-free cooked rice yogurt mustard seeds curry leaves pomegranate cucumber green chili"
+    },
+    {
+      "id": "R005",
+      "title": "Lemon Rice",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "cooked rice",
+        "lemon",
+        "mustard seeds",
+        "curry leaves",
+        "peanuts",
+        "turmeric"
+      ],
+      "optional_ingredients": [
+        "green chili",
+        "ginger"
+      ],
+      "common_substitutions": {
+        "peanuts": "cashews or omit",
+        "curry leaves": "omit"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Heat oil, splutter mustard seeds, curry leaves, and peanuts.",
+        "Add turmeric and green chili.",
+        "Add cooked rice, mix well.",
+        "Turn off heat, squeeze in lemon juice, toss and serve."
+      ],
+      "cooking_tips": [
+        "Add lemon juice off the heat to preserve its fresh flavor."
+      ],
+      "embedding_text": "Lemon Rice South Indian vegetarian vegan gluten-free cooked rice lemon mustard seeds curry leaves peanuts turmeric green chili ginger"
+    },
+    {
+      "id": "R006",
+      "title": "Egg Fried Rice",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "non-vegetarian"
+      ],
+      "core_ingredients": [
+        "cooked rice",
+        "eggs",
+        "spring onion",
+        "soy sauce",
+        "garlic"
+      ],
+      "optional_ingredients": [
+        "peas",
+        "carrot",
+        "sesame oil"
+      ],
+      "common_substitutions": {
+        "soy sauce": "tamari",
+        "spring onion": "regular onion"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Scramble eggs lightly, set aside.",
+        "Saute garlic, add vegetables, stir-fry.",
+        "Add rice and soy sauce, toss on high heat.",
+        "Fold in scrambled eggs, garnish and serve."
+      ],
+      "cooking_tips": [
+        "Cook eggs separately for distinct fluffy pieces."
+      ],
+      "embedding_text": "Egg Fried Rice Chinese non-vegetarian cooked rice eggs spring onion soy sauce garlic peas carrot sesame oil"
+    },
+    {
+      "id": "R007",
+      "title": "Khichdi",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "split moong dal",
+        "turmeric",
+        "cumin seeds",
+        "ghee"
+      ],
+      "optional_ingredients": [
+        "mixed vegetables",
+        "ginger"
+      ],
+      "common_substitutions": {
+        "ghee": "oil for vegan version",
+        "moong dal": "masoor dal"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Wash rice and dal together.",
+        "Heat ghee, temper cumin seeds.",
+        "Add vegetables and turmeric, saute briefly.",
+        "Add rice-dal mix and water, pressure cook 3-4 whistles.",
+        "Serve hot with a dollop of ghee."
+      ],
+      "cooking_tips": [
+        "A comforting one-pot meal, great when unwell or for using leftover vegetables."
+      ],
+      "embedding_text": "Khichdi Indian vegetarian gluten-free rice split moong dal turmeric cumin seeds ghee mixed vegetables ginger"
+    },
+    {
+      "id": "R008",
+      "title": "Vegetable Fried Quinoa",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "cooked quinoa",
+        "mixed vegetables",
+        "garlic",
+        "soy sauce"
+      ],
+      "optional_ingredients": [
+        "tofu",
+        "sesame seeds"
+      ],
+      "common_substitutions": {
+        "quinoa": "rice or couscous",
+        "soy sauce": "tamari"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Saute garlic and vegetables in oil.",
+        "Add cooked quinoa, soy sauce, toss well.",
+        "Garnish with sesame seeds and serve."
+      ],
+      "cooking_tips": [
+        "Quinoa is a high-protein substitute for rice in stir-fries."
+      ],
+      "embedding_text": "Vegetable Fried Quinoa International vegan vegetarian gluten-free cooked quinoa mixed vegetables garlic soy sauce tofu sesame seeds"
+    },
+    {
+      "id": "R009",
+      "title": "Jeera Rice",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "cumin seeds",
+        "ghee",
+        "bay leaf"
+      ],
+      "optional_ingredients": [
+        "coriander leaves"
+      ],
+      "common_substitutions": {
+        "ghee": "oil"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Heat ghee, add cumin seeds and bay leaf until fragrant.",
+        "Add soaked rice and water, bring to boil.",
+        "Cover and simmer until cooked.",
+        "Fluff and garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Simple side dish that pairs with any curry."
+      ],
+      "embedding_text": "Jeera Rice Indian vegetarian vegan gluten-free rice cumin seeds ghee bay leaf coriander leaves"
+    },
+    {
+      "id": "R010",
+      "title": "Vegetable Biryani",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "mixed vegetables",
+        "yogurt",
+        "biryani masala",
+        "onion",
+        "mint"
+      ],
+      "optional_ingredients": [
+        "saffron",
+        "cashews"
+      ],
+      "common_substitutions": {
+        "yogurt": "coconut milk for vegan",
+        "biryani masala": "garam masala + chili powder"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 35,
+      "servings": 4,
+      "instructions": [
+        "Fry onions until golden brown; set aside.",
+        "Marinate vegetables in yogurt and spices.",
+        "Par-cook rice with whole spices.",
+        "Layer rice and vegetable mixture in a pot.",
+        "Top with fried onions and mint, cover tightly and cook on low heat (dum) for 20 minutes."
+      ],
+      "cooking_tips": [
+        "The 'dum' slow-cooking step is key to authentic flavor.",
+        "Layering evenly ensures balanced taste in every bite."
+      ],
+      "embedding_text": "Vegetable Biryani Indian vegetarian gluten-free rice mixed vegetables yogurt biryani masala onion mint saffron cashews"
+    },
+    {
+      "id": "R011",
+      "title": "Dal Tadka",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "yellow lentils",
+        "onion",
+        "tomato",
+        "garlic",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "ghee",
+        "cumin seeds",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "toor dal": "moong or masoor dal",
+        "ghee": "oil for vegan"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 30,
+      "servings": 4,
+      "instructions": [
+        "Pressure-cook lentils with turmeric until soft.",
+        "Heat ghee, temper cumin, garlic, onion until golden.",
+        "Add tomatoes and spices, cook until oil separates.",
+        "Pour tempering over dal, simmer 5 minutes.",
+        "Garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Mash dal slightly for creamier texture.",
+        "A separate tempering (tadka) boosts aroma."
+      ],
+      "embedding_text": "Dal Tadka Indian vegetarian gluten-free yellow lentils onion tomato garlic spices ghee cumin seeds coriander"
+    },
+    {
+      "id": "R012",
+      "title": "Chana Masala",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "chickpeas",
+        "onion",
+        "tomato",
+        "garlic",
+        "ginger",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "coriander leaves",
+        "lemon"
+      ],
+      "common_substitutions": {
+        "chickpeas": "kidney beans",
+        "fresh tomato": "tomato puree"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 30,
+      "servings": 4,
+      "instructions": [
+        "Saute onion, garlic, ginger until golden.",
+        "Add tomato and spices, cook until thick.",
+        "Add boiled/canned chickpeas and simmer 15 minutes.",
+        "Garnish with coriander and a squeeze of lemon."
+      ],
+      "cooking_tips": [
+        "Mash a few chickpeas to thicken the gravy naturally."
+      ],
+      "embedding_text": "Chana Masala Indian vegetarian vegan gluten-free chickpeas onion tomato garlic ginger spices coriander leaves lemon"
+    },
+    {
+      "id": "R013",
+      "title": "Rajma Curry",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "kidney beans",
+        "onion",
+        "tomato",
+        "garlic",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "cream",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "kidney beans": "black beans",
+        "cream": "cashew paste or omit"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 35,
+      "servings": 4,
+      "instructions": [
+        "Soak and boil kidney beans until soft (or use canned).",
+        "Saute onion, garlic until golden.",
+        "Add tomato puree and spices, cook until thick.",
+        "Add boiled beans, simmer 15 minutes.",
+        "Garnish and serve."
+      ],
+      "cooking_tips": [
+        "Simmering longer deepens the flavor of the gravy."
+      ],
+      "embedding_text": "Rajma Curry Indian vegetarian vegan gluten-free kidney beans onion tomato garlic spices cream coriander"
+    },
+    {
+      "id": "R014",
+      "title": "Palak Paneer",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "spinach",
+        "paneer",
+        "onion",
+        "garlic",
+        "cream"
+      ],
+      "optional_ingredients": [
+        "ginger",
+        "garam masala"
+      ],
+      "common_substitutions": {
+        "paneer": "tofu",
+        "cream": "cashew paste or milk"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Blanch spinach and blend into a puree.",
+        "Saute onion, garlic, ginger until golden.",
+        "Add spinach puree, spices, simmer 5 minutes.",
+        "Add paneer cubes and cream, cook 5 more minutes."
+      ],
+      "cooking_tips": [
+        "Blanching spinach preserves its bright green color."
+      ],
+      "embedding_text": "Palak Paneer Indian vegetarian gluten-free spinach paneer onion garlic cream ginger garam masala"
+    },
+    {
+      "id": "R015",
+      "title": "Butter Chicken",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "chicken",
+        "tomato",
+        "butter",
+        "cream",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "cashews",
+        "kasuri methi"
+      ],
+      "common_substitutions": {
+        "cream": "milk + butter",
+        "cashews": "omit"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 35,
+      "servings": 4,
+      "instructions": [
+        "Marinate and cook chicken until charred/cooked through.",
+        "Prepare tomato-cashew gravy base, simmer until thick.",
+        "Add butter and cream, blend smooth if desired.",
+        "Add cooked chicken, simmer 10 minutes.",
+        "Finish with kasuri methi and a swirl of cream."
+      ],
+      "cooking_tips": [
+        "Charring the chicken first adds smoky depth to the dish."
+      ],
+      "embedding_text": "Butter Chicken Indian non-vegetarian gluten-free chicken tomato butter cream spices cashews kasuri methi"
+    },
+    {
+      "id": "R016",
+      "title": "Egg Curry",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "boiled eggs",
+        "onion",
+        "tomato",
+        "garlic",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "coconut milk",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "coconut milk": "cream or omit"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Saute onion, garlic until golden.",
+        "Add tomato and spices, cook until thick.",
+        "Add halved boiled eggs, simmer 10 minutes.",
+        "Garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Lightly frying boiled eggs before adding to curry improves texture."
+      ],
+      "embedding_text": "Egg Curry Indian non-vegetarian gluten-free dairy-free boiled eggs onion tomato garlic spices coconut milk coriander"
+    },
+    {
+      "id": "R017",
+      "title": "Thai Green Curry",
+      "cuisine": "Thai",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "chicken or vegetables",
+        "green curry paste",
+        "coconut milk",
+        "basil"
+      ],
+      "optional_ingredients": [
+        "bell pepper",
+        "fish sauce"
+      ],
+      "common_substitutions": {
+        "fish sauce": "soy sauce for vegetarian version",
+        "chicken": "tofu or mixed vegetables"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Saute curry paste in a little oil until fragrant.",
+        "Add coconut milk, bring to simmer.",
+        "Add chicken/vegetables, cook until done.",
+        "Season with fish sauce, garnish with basil."
+      ],
+      "cooking_tips": [
+        "Use full-fat coconut milk for a richer curry."
+      ],
+      "embedding_text": "Thai Green Curry Thai non-vegetarian gluten-free dairy-free chicken or vegetables green curry paste coconut milk basil bell pepper fish sauce"
+    },
+    {
+      "id": "R018",
+      "title": "Vegetable Korma",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "mixed vegetables",
+        "cashews",
+        "yogurt",
+        "onion",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "cream",
+        "raisins"
+      ],
+      "common_substitutions": {
+        "yogurt": "coconut milk for vegan",
+        "cashews": "almonds"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 30,
+      "servings": 4,
+      "instructions": [
+        "Blend cashews and onion into a smooth paste.",
+        "Saute the paste in oil until fragrant.",
+        "Add vegetables and spices, cook 5 minutes.",
+        "Add yogurt/coconut milk, simmer until vegetables are tender."
+      ],
+      "cooking_tips": [
+        "Blending cashews gives korma its signature creamy texture without heavy cream."
+      ],
+      "embedding_text": "Vegetable Korma Indian vegetarian gluten-free mixed vegetables cashews yogurt onion spices cream raisins"
+    },
+    {
+      "id": "R019",
+      "title": "Sambhar",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "toor dal",
+        "mixed vegetables",
+        "tamarind",
+        "sambhar powder"
+      ],
+      "optional_ingredients": [
+        "curry leaves",
+        "mustard seeds"
+      ],
+      "common_substitutions": {
+        "tamarind": "lemon juice as a tangy substitute"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 30,
+      "servings": 4,
+      "instructions": [
+        "Cook dal until soft.",
+        "Boil vegetables with tamarind water and sambhar powder.",
+        "Mix in cooked dal, simmer 10 minutes.",
+        "Temper mustard seeds and curry leaves, pour over sambhar."
+      ],
+      "cooking_tips": [
+        "Balancing tamarind's tartness with a little jaggery improves flavor depth."
+      ],
+      "embedding_text": "Sambhar South Indian vegetarian vegan gluten-free toor dal mixed vegetables tamarind sambhar powder curry leaves mustard seeds"
+    },
+    {
+      "id": "R020",
+      "title": "Vegan Stir-Fried Noodles",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "noodles",
+        "mixed vegetables",
+        "garlic",
+        "soy sauce",
+        "oil"
+      ],
+      "optional_ingredients": [
+        "tofu",
+        "sesame seeds"
+      ],
+      "common_substitutions": {
+        "noodles": "rice noodles for gluten-free",
+        "soy sauce": "tamari"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Boil noodles, drain, toss with oil.",
+        "Saute garlic on high heat.",
+        "Add vegetables, stir-fry 3-4 minutes.",
+        "Add noodles and soy sauce, toss well.",
+        "Garnish with sesame and spring onion."
+      ],
+      "cooking_tips": [
+        "Keep vegetables crunchy for authentic texture."
+      ],
+      "embedding_text": "Vegan Stir-Fried Noodles Chinese vegan vegetarian dairy-free noodles mixed vegetables garlic soy sauce oil tofu sesame seeds"
+    },
+    {
+      "id": "R021",
+      "title": "Chicken Stir Fry",
+      "cuisine": "American/Fusion",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "chicken breast",
+        "mixed vegetables",
+        "garlic",
+        "soy sauce"
+      ],
+      "optional_ingredients": [
+        "ginger",
+        "sesame oil"
+      ],
+      "common_substitutions": {
+        "chicken": "tofu for vegetarian",
+        "soy sauce": "tamari"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Slice and season chicken.",
+        "Sear chicken until golden; set aside.",
+        "Saute garlic and vegetables until crisp-tender.",
+        "Return chicken, add soy sauce, toss and cook 2 minutes."
+      ],
+      "cooking_tips": [
+        "Cook chicken in batches to avoid overcrowding the pan."
+      ],
+      "embedding_text": "Chicken Stir Fry American/Fusion non-vegetarian gluten-free dairy-free chicken breast mixed vegetables garlic soy sauce ginger sesame oil"
+    },
+    {
+      "id": "R022",
+      "title": "Schezwan Noodles",
+      "cuisine": "Indo-Chinese",
+      "diet_tags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "core_ingredients": [
+        "noodles",
+        "schezwan sauce",
+        "garlic",
+        "mixed vegetables"
+      ],
+      "optional_ingredients": [
+        "spring onion",
+        "vinegar"
+      ],
+      "common_substitutions": {
+        "schezwan sauce": "chili garlic sauce + soy sauce mix"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Boil noodles, drain and set aside.",
+        "Saute garlic and vegetables on high flame.",
+        "Add schezwan sauce and noodles, toss well.",
+        "Garnish with spring onion."
+      ],
+      "cooking_tips": [
+        "Adjust chili level of sauce to taste before adding."
+      ],
+      "embedding_text": "Schezwan Noodles Indo-Chinese vegetarian vegan noodles schezwan sauce garlic mixed vegetables spring onion vinegar"
+    },
+    {
+      "id": "R023",
+      "title": "Beef and Broccoli Stir Fry",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "non-vegetarian",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "beef strips",
+        "broccoli",
+        "garlic",
+        "soy sauce",
+        "cornstarch"
+      ],
+      "optional_ingredients": [
+        "ginger",
+        "oyster sauce"
+      ],
+      "common_substitutions": {
+        "beef": "chicken or mushrooms",
+        "oyster sauce": "soy sauce + sugar"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Marinate beef with soy sauce and cornstarch.",
+        "Sear beef quickly on high heat; set aside.",
+        "Stir-fry broccoli and garlic until bright green.",
+        "Return beef, add sauce, toss and cook 2 minutes."
+      ],
+      "cooking_tips": [
+        "Slicing beef thinly against the grain keeps it tender."
+      ],
+      "embedding_text": "Beef and Broccoli Stir Fry Chinese non-vegetarian dairy-free beef strips broccoli garlic soy sauce cornstarch ginger oyster sauce"
+    },
+    {
+      "id": "R024",
+      "title": "Vegetable Chow Mein",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "core_ingredients": [
+        "noodles",
+        "cabbage",
+        "carrot",
+        "capsicum",
+        "soy sauce"
+      ],
+      "optional_ingredients": [
+        "spring onion",
+        "vinegar"
+      ],
+      "common_substitutions": {
+        "noodles": "rice noodles for gluten-free"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Boil noodles, drain and toss with oil.",
+        "Stir-fry julienned vegetables on high heat.",
+        "Add noodles and soy sauce, toss thoroughly.",
+        "Garnish and serve hot."
+      ],
+      "cooking_tips": [
+        "Julienne vegetables uniformly for even cooking."
+      ],
+      "embedding_text": "Vegetable Chow Mein Chinese vegetarian vegan noodles cabbage carrot capsicum soy sauce spring onion vinegar"
+    },
+    {
+      "id": "R025",
+      "title": "Shrimp Fried Rice",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "non-vegetarian",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "cooked rice",
+        "shrimp",
+        "eggs",
+        "garlic",
+        "soy sauce"
+      ],
+      "optional_ingredients": [
+        "peas",
+        "spring onion"
+      ],
+      "common_substitutions": {
+        "shrimp": "chicken or tofu"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Saute shrimp until pink; set aside.",
+        "Scramble eggs, set aside.",
+        "Saute garlic and vegetables, add rice and soy sauce.",
+        "Fold in shrimp and eggs, toss and serve."
+      ],
+      "cooking_tips": [
+        "Do not overcook shrimp \u2014 it turns rubbery quickly."
+      ],
+      "embedding_text": "Shrimp Fried Rice Chinese non-vegetarian dairy-free cooked rice shrimp eggs garlic soy sauce peas spring onion"
+    },
+    {
+      "id": "R026",
+      "title": "Pad Thai",
+      "cuisine": "Thai",
+      "diet_tags": [
+        "non-vegetarian",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "rice noodles",
+        "egg",
+        "tofu or shrimp",
+        "tamarind paste",
+        "bean sprouts"
+      ],
+      "optional_ingredients": [
+        "peanuts",
+        "lime"
+      ],
+      "common_substitutions": {
+        "tamarind paste": "lime juice + brown sugar mix",
+        "shrimp": "tofu or chicken"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Soak rice noodles until pliable.",
+        "Stir-fry protein until cooked; push aside, scramble egg in same pan.",
+        "Add noodles and tamarind sauce, toss well.",
+        "Add bean sprouts, toss briefly, garnish with peanuts and lime."
+      ],
+      "cooking_tips": [
+        "Keep the sauce-to-noodle ratio balanced to avoid sogginess."
+      ],
+      "embedding_text": "Pad Thai Thai non-vegetarian dairy-free rice noodles egg tofu or shrimp tamarind paste bean sprouts peanuts lime"
+    },
+    {
+      "id": "R027",
+      "title": "Chickpea Salad",
+      "cuisine": "Mediterranean",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "chickpeas",
+        "cucumber",
+        "tomato",
+        "onion",
+        "lemon",
+        "olive oil"
+      ],
+      "optional_ingredients": [
+        "feta cheese",
+        "parsley"
+      ],
+      "common_substitutions": {
+        "chickpeas": "kidney or black beans",
+        "feta": "omit or tofu crumbles"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "servings": 2,
+      "instructions": [
+        "Drain and rinse chickpeas.",
+        "Chop vegetables into small cubes.",
+        "Combine chickpeas and vegetables in a bowl.",
+        "Dress with olive oil, lemon, salt and pepper.",
+        "Chill 10 minutes before serving."
+      ],
+      "cooking_tips": [
+        "Tastes better after resting 30 minutes for flavors to meld."
+      ],
+      "embedding_text": "Chickpea Salad Mediterranean vegan vegetarian gluten-free dairy-free chickpeas cucumber tomato onion lemon olive oil feta cheese parsley"
+    },
+    {
+      "id": "R028",
+      "title": "Greek Salad",
+      "cuisine": "Mediterranean",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "cucumber",
+        "tomato",
+        "red onion",
+        "feta cheese",
+        "olives",
+        "olive oil"
+      ],
+      "optional_ingredients": [
+        "oregano"
+      ],
+      "common_substitutions": {
+        "feta": "paneer or omit for vegan"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "servings": 2,
+      "instructions": [
+        "Chop cucumber, tomato, and onion into chunks.",
+        "Combine with olives and crumbled feta.",
+        "Dress with olive oil and oregano, toss gently."
+      ],
+      "cooking_tips": [
+        "Use day-old bread cubes as a crunchy addition (panzanella style)."
+      ],
+      "embedding_text": "Greek Salad Mediterranean vegetarian gluten-free cucumber tomato red onion feta cheese olives olive oil oregano"
+    },
+    {
+      "id": "R029",
+      "title": "Caprese Salad",
+      "cuisine": "Italian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "tomato",
+        "mozzarella",
+        "basil",
+        "olive oil"
+      ],
+      "optional_ingredients": [
+        "balsamic glaze"
+      ],
+      "common_substitutions": {
+        "mozzarella": "any soft cheese",
+        "fresh basil": "dried basil (small amount)"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "servings": 2,
+      "instructions": [
+        "Slice tomato and mozzarella into rounds.",
+        "Arrange alternating on a plate with basil leaves.",
+        "Drizzle with olive oil and balsamic glaze, season with salt and pepper."
+      ],
+      "cooking_tips": [
+        "Use ripe, in-season tomatoes for the best flavor."
+      ],
+      "embedding_text": "Caprese Salad Italian vegetarian gluten-free tomato mozzarella basil olive oil balsamic glaze"
+    },
+    {
+      "id": "R030",
+      "title": "Kachumber Salad",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "cucumber",
+        "tomato",
+        "onion",
+        "lemon",
+        "coriander"
+      ],
+      "optional_ingredients": [
+        "green chili",
+        "chaat masala"
+      ],
+      "common_substitutions": {
+        "lemon": "vinegar"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "servings": 2,
+      "instructions": [
+        "Finely chop cucumber, tomato, and onion.",
+        "Combine in a bowl with chopped coriander.",
+        "Season with lemon juice, salt, and chaat masala."
+      ],
+      "cooking_tips": [
+        "A refreshing side that pairs with any Indian meal."
+      ],
+      "embedding_text": "Kachumber Salad Indian vegan vegetarian gluten-free dairy-free cucumber tomato onion lemon coriander green chili chaat masala"
+    },
+    {
+      "id": "R031",
+      "title": "Vegetable Clear Soup",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "mixed vegetables",
+        "garlic",
+        "vegetable stock",
+        "pepper"
+      ],
+      "optional_ingredients": [
+        "spring onion",
+        "soy sauce"
+      ],
+      "common_substitutions": {
+        "vegetable stock": "water with bouillon cube"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Chop vegetables finely and uniformly.",
+        "Boil stock with garlic and vegetables.",
+        "Simmer 10 minutes until tender.",
+        "Season with salt, pepper, and soy sauce."
+      ],
+      "cooking_tips": [
+        "Great way to use up vegetable scraps before they spoil."
+      ],
+      "embedding_text": "Vegetable Clear Soup International vegan vegetarian gluten-free dairy-free mixed vegetables garlic vegetable stock pepper spring onion soy sauce"
+    },
+    {
+      "id": "R032",
+      "title": "Tomato Soup",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "tomato",
+        "onion",
+        "garlic",
+        "cream"
+      ],
+      "optional_ingredients": [
+        "basil",
+        "butter"
+      ],
+      "common_substitutions": {
+        "cream": "milk or cashew paste"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Saute onion and garlic until soft.",
+        "Add chopped tomatoes, cook until mushy.",
+        "Blend smooth, return to pot.",
+        "Add cream, simmer, season and serve with basil."
+      ],
+      "cooking_tips": [
+        "Roasting tomatoes first deepens the flavor."
+      ],
+      "embedding_text": "Tomato Soup International vegetarian gluten-free tomato onion garlic cream basil butter"
+    },
+    {
+      "id": "R033",
+      "title": "Sweet Corn Soup",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "sweet corn",
+        "cornstarch",
+        "vegetable stock",
+        "spring onion"
+      ],
+      "optional_ingredients": [
+        "egg",
+        "garlic"
+      ],
+      "common_substitutions": {
+        "cornstarch": "omit for thinner soup"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Boil stock with corn.",
+        "Mix cornstarch with water and stir in to thicken.",
+        "Drizzle beaten egg in slowly while stirring for egg-drop effect (optional).",
+        "Garnish with spring onion and serve hot."
+      ],
+      "cooking_tips": [
+        "Stir continuously while adding cornstarch slurry to avoid lumps."
+      ],
+      "embedding_text": "Sweet Corn Soup Chinese vegetarian gluten-free sweet corn cornstarch vegetable stock spring onion egg garlic"
+    },
+    {
+      "id": "R034",
+      "title": "Chicken Noodle Soup",
+      "cuisine": "American",
+      "diet_tags": [
+        "non-vegetarian"
+      ],
+      "core_ingredients": [
+        "chicken",
+        "noodles",
+        "carrot",
+        "celery",
+        "onion",
+        "stock"
+      ],
+      "optional_ingredients": [
+        "parsley"
+      ],
+      "common_substitutions": {
+        "noodles": "rice or gluten-free noodles"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 30,
+      "servings": 4,
+      "instructions": [
+        "Saute onion, carrot, celery until soft.",
+        "Add stock and chicken, simmer until cooked.",
+        "Shred chicken, return to pot.",
+        "Add noodles, cook until tender, garnish with parsley."
+      ],
+      "cooking_tips": [
+        "A classic comfort food, great for using leftover roast chicken."
+      ],
+      "embedding_text": "Chicken Noodle Soup American non-vegetarian chicken noodles carrot celery onion stock parsley"
+    },
+    {
+      "id": "R035",
+      "title": "Vegetable Sandwich",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "bread",
+        "cucumber",
+        "tomato",
+        "onion",
+        "butter"
+      ],
+      "optional_ingredients": [
+        "cheese",
+        "chutney"
+      ],
+      "common_substitutions": {
+        "butter": "vegan spread",
+        "cheese": "omit for vegan"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 5,
+      "servings": 2,
+      "instructions": [
+        "Spread butter/chutney on bread slices.",
+        "Layer sliced vegetables evenly.",
+        "Top with second slice, grill or toast if desired.",
+        "Cut and serve."
+      ],
+      "cooking_tips": [
+        "Grilling adds crunch, but it's equally good cold for a quick lunch."
+      ],
+      "embedding_text": "Vegetable Sandwich International vegetarian vegan option bread cucumber tomato onion butter cheese chutney"
+    },
+    {
+      "id": "R036",
+      "title": "Paneer Tikka Wrap",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free (use GF wrap)"
+      ],
+      "core_ingredients": [
+        "paneer",
+        "yogurt",
+        "spices",
+        "tortilla/roti",
+        "onion"
+      ],
+      "optional_ingredients": [
+        "mint chutney",
+        "capsicum"
+      ],
+      "common_substitutions": {
+        "paneer": "tofu or chicken",
+        "tortilla": "roti or lettuce wrap"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Marinate paneer cubes in yogurt and spices.",
+        "Grill or pan-fry until charred.",
+        "Warm tortilla/roti, spread chutney.",
+        "Add paneer, onion, and vegetables, roll tightly."
+      ],
+      "cooking_tips": [
+        "A hot tawa/pan sear gives authentic charred tikka flavor."
+      ],
+      "embedding_text": "Paneer Tikka Wrap Indian vegetarian gluten-free (use GF wrap) paneer yogurt spices tortilla/roti onion mint chutney capsicum"
+    },
+    {
+      "id": "R037",
+      "title": "Bean Quesadilla",
+      "cuisine": "Mexican",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free (corn tortilla)"
+      ],
+      "core_ingredients": [
+        "tortilla",
+        "beans",
+        "cheese",
+        "onion"
+      ],
+      "optional_ingredients": [
+        "capsicum",
+        "salsa"
+      ],
+      "common_substitutions": {
+        "tortilla": "corn tortilla or chapati",
+        "cheese": "vegan cheese or omit"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 10,
+      "servings": 2,
+      "instructions": [
+        "Mash beans, season with spices.",
+        "Spread on tortilla with cheese, fold.",
+        "Cook on a hot pan until golden and crisp both sides.",
+        "Cut into wedges, serve with salsa."
+      ],
+      "cooking_tips": [
+        "Press gently with a spatula for even crisping."
+      ],
+      "embedding_text": "Bean Quesadilla Mexican vegetarian gluten-free (corn tortilla) tortilla beans cheese onion capsicum salsa"
+    },
+    {
+      "id": "R038",
+      "title": "Egg Sandwich",
+      "cuisine": "International",
+      "diet_tags": [
+        "non-vegetarian"
+      ],
+      "core_ingredients": [
+        "bread",
+        "boiled eggs",
+        "mayonnaise",
+        "onion"
+      ],
+      "optional_ingredients": [
+        "lettuce",
+        "black pepper"
+      ],
+      "common_substitutions": {
+        "mayonnaise": "mustard or butter"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 10,
+      "servings": 2,
+      "instructions": [
+        "Mash boiled eggs with mayonnaise and seasoning.",
+        "Spread on bread slices.",
+        "Add lettuce and onion if using, close sandwich, cut and serve."
+      ],
+      "cooking_tips": [
+        "Chilling the egg mixture briefly makes it easier to spread."
+      ],
+      "embedding_text": "Egg Sandwich International non-vegetarian bread boiled eggs mayonnaise onion lettuce black pepper"
+    },
+    {
+      "id": "R039",
+      "title": "Aloo Paratha",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "dairy-free option"
+      ],
+      "core_ingredients": [
+        "whole wheat flour",
+        "potato",
+        "spices",
+        "ghee"
+      ],
+      "optional_ingredients": [
+        "coriander",
+        "onion"
+      ],
+      "common_substitutions": {
+        "ghee": "oil for vegan"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Boil and mash potatoes with spices.",
+        "Stuff dough balls with potato filling, roll gently.",
+        "Cook on a hot tawa with ghee/oil until golden on both sides."
+      ],
+      "cooking_tips": [
+        "Keep filling well-sealed inside the dough to prevent tearing while rolling."
+      ],
+      "embedding_text": "Aloo Paratha Indian vegetarian dairy-free option whole wheat flour potato spices ghee coriander onion"
+    },
+    {
+      "id": "R040",
+      "title": "Vegetable Cutlet",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "core_ingredients": [
+        "boiled potato",
+        "mixed vegetables",
+        "breadcrumbs",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "green chili",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "breadcrumbs": "crushed poha or oats"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Mash boiled potato and mixed vegetables together.",
+        "Add spices and shape into patties.",
+        "Coat with breadcrumbs, shallow fry until golden on both sides."
+      ],
+      "cooking_tips": [
+        "Chilling patties for 10 minutes before frying helps them hold shape."
+      ],
+      "embedding_text": "Vegetable Cutlet Indian vegetarian vegan boiled potato mixed vegetables breadcrumbs spices green chili coriander"
+    },
+    {
+      "id": "R041",
+      "title": "Hummus with Veggie Sticks",
+      "cuisine": "Mediterranean",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "chickpeas",
+        "tahini",
+        "garlic",
+        "lemon",
+        "olive oil"
+      ],
+      "optional_ingredients": [
+        "cucumber sticks",
+        "carrot sticks"
+      ],
+      "common_substitutions": {
+        "tahini": "peanut butter (different flavor, works in a pinch)"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "servings": 3,
+      "instructions": [
+        "Blend chickpeas, tahini, garlic, lemon, and olive oil until smooth.",
+        "Adjust consistency with water if needed.",
+        "Serve with fresh vegetable sticks."
+      ],
+      "cooking_tips": [
+        "Peeling chickpeas before blending gives a silkier hummus."
+      ],
+      "embedding_text": "Hummus with Veggie Sticks Mediterranean vegan vegetarian gluten-free dairy-free chickpeas tahini garlic lemon olive oil cucumber sticks carrot sticks"
+    },
+    {
+      "id": "R042",
+      "title": "Besan Chilla",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "besan",
+        "onion",
+        "tomato",
+        "spices",
+        "water"
+      ],
+      "optional_ingredients": [
+        "coriander",
+        "green chili"
+      ],
+      "common_substitutions": {
+        "besan": "no direct substitute"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Mix besan with water into a smooth batter.",
+        "Add chopped vegetables and spices.",
+        "Pour on a hot pan, spread thin, cook both sides with a little oil."
+      ],
+      "cooking_tips": [
+        "Batter consistency should resemble regular pancake batter."
+      ],
+      "embedding_text": "Besan Chilla Indian vegan vegetarian gluten-free besan onion tomato spices water coriander green chili"
+    },
+    {
+      "id": "R043",
+      "title": "Plain Dosa",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "dosa batter (rice and urad dal)",
+        "oil"
+      ],
+      "optional_ingredients": [
+        "potato masala",
+        "chutney"
+      ],
+      "common_substitutions": {
+        "dosa batter": "can substitute with rava/oats batter in a pinch"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Heat a flat pan, pour a ladle of batter and spread thin in circular motion.",
+        "Drizzle oil around edges, cook until golden and crisp.",
+        "Fold and serve with chutney or sambhar."
+      ],
+      "cooking_tips": [
+        "A well-seasoned pan is key to dosas not sticking."
+      ],
+      "embedding_text": "Plain Dosa South Indian vegan vegetarian gluten-free dosa batter (rice and urad dal) oil potato masala chutney"
+    },
+    {
+      "id": "R044",
+      "title": "Oats Vegetable Upma",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "oats",
+        "mixed vegetables",
+        "onion",
+        "mustard seeds",
+        "curry leaves"
+      ],
+      "optional_ingredients": [
+        "peanuts",
+        "ghee"
+      ],
+      "common_substitutions": {
+        "oats": "semolina (rava)",
+        "ghee": "oil"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Dry roast oats, set aside.",
+        "Temper mustard seeds and curry leaves in oil.",
+        "Saute onion and vegetables until soft.",
+        "Add water, bring to boil, stir in oats, cook until thickened."
+      ],
+      "cooking_tips": [
+        "Roasting oats first prevents mushiness."
+      ],
+      "embedding_text": "Oats Vegetable Upma Indian vegetarian vegan option oats mixed vegetables onion mustard seeds curry leaves peanuts ghee"
+    },
+    {
+      "id": "R045",
+      "title": "Peanut Butter Banana Oats",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option",
+        "gluten-free (certified oats)"
+      ],
+      "core_ingredients": [
+        "oats",
+        "banana",
+        "peanut butter",
+        "milk"
+      ],
+      "optional_ingredients": [
+        "honey",
+        "chia seeds"
+      ],
+      "common_substitutions": {
+        "milk": "plant-based milk",
+        "peanut butter": "almond butter"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "servings": 1,
+      "instructions": [
+        "Mash banana in a bowl.",
+        "Add oats and milk, mix well.",
+        "Stir in peanut butter.",
+        "Let sit 5 minutes or refrigerate overnight, top and serve."
+      ],
+      "cooking_tips": [
+        "Great make-ahead breakfast prepared the night before."
+      ],
+      "embedding_text": "Peanut Butter Banana Oats International vegetarian vegan option gluten-free (certified oats) oats banana peanut butter milk honey chia seeds"
+    },
+    {
+      "id": "R046",
+      "title": "Vegetable Poha",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "flattened rice (poha)",
+        "onion",
+        "potato",
+        "mustard seeds",
+        "curry leaves",
+        "peanuts"
+      ],
+      "optional_ingredients": [
+        "lemon",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "peanuts": "cashews or omit"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Rinse poha in a strainer until soft; set aside.",
+        "Temper mustard seeds, curry leaves, and peanuts in oil.",
+        "Saute onion and potato until cooked.",
+        "Add poha, turmeric, and salt, mix gently.",
+        "Finish with lemon juice and coriander."
+      ],
+      "cooking_tips": [
+        "Rinse poha briefly \u2014 soaking too long makes it mushy."
+      ],
+      "embedding_text": "Vegetable Poha Indian vegan vegetarian gluten-free flattened rice (poha) onion potato mustard seeds curry leaves peanuts lemon coriander"
+    },
+    {
+      "id": "R047",
+      "title": "Pancakes (Basic)",
+      "cuisine": "American",
+      "diet_tags": [
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "flour",
+        "milk",
+        "egg",
+        "sugar",
+        "baking powder"
+      ],
+      "optional_ingredients": [
+        "butter",
+        "maple syrup"
+      ],
+      "common_substitutions": {
+        "milk": "plant-based milk",
+        "egg": "mashed banana or flax egg"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Whisk dry ingredients together.",
+        "Whisk in milk and egg until just combined (small lumps are fine).",
+        "Pour batter onto a hot greased pan, cook until bubbles form, flip and cook other side.",
+        "Serve with butter and syrup."
+      ],
+      "cooking_tips": [
+        "Do not overmix batter \u2014 this keeps pancakes fluffy."
+      ],
+      "embedding_text": "Pancakes (Basic) American vegetarian flour milk egg sugar baking powder butter maple syrup"
+    },
+    {
+      "id": "R048",
+      "title": "Vegetable Omelette",
+      "cuisine": "International",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "eggs",
+        "onion",
+        "tomato",
+        "capsicum"
+      ],
+      "optional_ingredients": [
+        "cheese",
+        "herbs"
+      ],
+      "common_substitutions": {
+        "capsicum": "any available vegetable"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 10,
+      "servings": 1,
+      "instructions": [
+        "Whisk eggs with salt and pepper.",
+        "Saute chopped vegetables briefly in a pan.",
+        "Pour eggs over vegetables, cook until set, fold and serve."
+      ],
+      "cooking_tips": [
+        "Cook on medium-low heat for a tender omelette."
+      ],
+      "embedding_text": "Vegetable Omelette International non-vegetarian gluten-free eggs onion tomato capsicum cheese herbs"
+    },
+    {
+      "id": "R049",
+      "title": "Egg Bhurji",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "eggs",
+        "onion",
+        "tomato",
+        "green chili",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "capsicum",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "green chili": "red chili powder"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 10,
+      "servings": 2,
+      "instructions": [
+        "Saute onion until translucent.",
+        "Add tomato and chili, cook until soft.",
+        "Add spices, crack in eggs, scramble continuously until just set.",
+        "Garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Keep flame medium-low to avoid rubbery eggs."
+      ],
+      "embedding_text": "Egg Bhurji Indian non-vegetarian gluten-free dairy-free eggs onion tomato green chili spices capsicum coriander"
+    },
+    {
+      "id": "R050",
+      "title": "Classic Margherita Pasta",
+      "cuisine": "Italian",
+      "diet_tags": [
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "pasta",
+        "tomato",
+        "garlic",
+        "olive oil",
+        "basil"
+      ],
+      "optional_ingredients": [
+        "parmesan",
+        "chili flakes"
+      ],
+      "common_substitutions": {
+        "parmesan": "nutritional yeast for vegan",
+        "pasta": "gluten-free pasta"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "servings": 2,
+      "instructions": [
+        "Boil pasta, reserve some pasta water.",
+        "Saute garlic in olive oil.",
+        "Add tomatoes, simmer until thick.",
+        "Toss pasta into sauce, adding pasta water as needed.",
+        "Garnish with basil and cheese."
+      ],
+      "cooking_tips": [
+        "Reserved starchy water helps sauce cling to pasta."
+      ],
+      "embedding_text": "Classic Margherita Pasta Italian vegetarian pasta tomato garlic olive oil basil parmesan chili flakes"
+    },
+    {
+      "id": "R051",
+      "title": "Creamy Alfredo Pasta",
+      "cuisine": "Italian",
+      "diet_tags": [
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "pasta",
+        "butter",
+        "cream",
+        "garlic",
+        "parmesan"
+      ],
+      "optional_ingredients": [
+        "black pepper",
+        "parsley"
+      ],
+      "common_substitutions": {
+        "cream": "milk + cornstarch slurry",
+        "parmesan": "any hard cheese"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "servings": 2,
+      "instructions": [
+        "Boil pasta until al dente.",
+        "Saute garlic in butter.",
+        "Add cream, simmer gently, whisk in cheese.",
+        "Toss pasta in sauce, season with pepper, garnish with parsley."
+      ],
+      "cooking_tips": [
+        "Keep heat low when adding cheese to prevent the sauce from splitting."
+      ],
+      "embedding_text": "Creamy Alfredo Pasta Italian vegetarian pasta butter cream garlic parmesan black pepper parsley"
+    },
+    {
+      "id": "R052",
+      "title": "Vegetable Stir Fry Pasta",
+      "cuisine": "Fusion",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "pasta",
+        "mixed vegetables",
+        "garlic",
+        "olive oil",
+        "soy sauce"
+      ],
+      "optional_ingredients": [
+        "chili flakes"
+      ],
+      "common_substitutions": {
+        "soy sauce": "tamari"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "servings": 2,
+      "instructions": [
+        "Boil pasta, drain and toss with oil.",
+        "Stir-fry vegetables and garlic on high heat.",
+        "Add pasta and soy sauce, toss to combine.",
+        "Season and serve."
+      ],
+      "cooking_tips": [
+        "A great fusion way to use leftover pasta and vegetable odds and ends."
+      ],
+      "embedding_text": "Vegetable Stir Fry Pasta Fusion vegetarian vegan option pasta mixed vegetables garlic olive oil soy sauce chili flakes"
+    },
+    {
+      "id": "R053",
+      "title": "Mushroom Risotto",
+      "cuisine": "Italian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "arborio rice",
+        "mushroom",
+        "onion",
+        "vegetable stock",
+        "butter",
+        "parmesan"
+      ],
+      "optional_ingredients": [
+        "white wine",
+        "thyme"
+      ],
+      "common_substitutions": {
+        "butter": "olive oil for dairy-free",
+        "parmesan": "nutritional yeast"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 35,
+      "servings": 3,
+      "instructions": [
+        "Saute onion and mushrooms until soft.",
+        "Add rice, toast briefly.",
+        "Add stock gradually, stirring continuously until absorbed each time.",
+        "Once rice is creamy and cooked, stir in butter and parmesan."
+      ],
+      "cooking_tips": [
+        "Add stock a ladle at a time and stir often for the classic creamy texture."
+      ],
+      "embedding_text": "Mushroom Risotto Italian vegetarian gluten-free arborio rice mushroom onion vegetable stock butter parmesan white wine thyme"
+    },
+    {
+      "id": "R054",
+      "title": "Baked Vegetable Pasta",
+      "cuisine": "Italian/Fusion",
+      "diet_tags": [
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "pasta",
+        "mixed vegetables",
+        "tomato sauce",
+        "cheese"
+      ],
+      "optional_ingredients": [
+        "oregano",
+        "garlic"
+      ],
+      "common_substitutions": {
+        "cheese": "vegan cheese"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 30,
+      "servings": 4,
+      "instructions": [
+        "Boil pasta until al dente.",
+        "Mix with tomato sauce and sauteed vegetables.",
+        "Transfer to a baking dish, top with cheese.",
+        "Bake until cheese melts and bubbles."
+      ],
+      "cooking_tips": [
+        "Broiling for the last 2 minutes gives a nice golden top."
+      ],
+      "embedding_text": "Baked Vegetable Pasta Italian/Fusion vegetarian pasta mixed vegetables tomato sauce cheese oregano garlic"
+    },
+    {
+      "id": "R055",
+      "title": "Garlic Bread",
+      "cuisine": "Italian",
+      "diet_tags": [
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "bread",
+        "butter",
+        "garlic",
+        "parsley"
+      ],
+      "optional_ingredients": [
+        "cheese",
+        "chili flakes"
+      ],
+      "common_substitutions": {
+        "butter": "olive oil for dairy-free"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 10,
+      "servings": 3,
+      "instructions": [
+        "Mix softened butter with minced garlic and parsley.",
+        "Spread generously on bread slices.",
+        "Toast/bake until golden and crisp."
+      ],
+      "cooking_tips": [
+        "Broil for the last minute for extra crispiness \u2014 watch closely to avoid burning."
+      ],
+      "embedding_text": "Garlic Bread Italian vegetarian bread butter garlic parsley cheese chili flakes"
+    },
+    {
+      "id": "R056",
+      "title": "Grilled Chicken Breast",
+      "cuisine": "International",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "chicken breast",
+        "olive oil",
+        "garlic",
+        "herbs"
+      ],
+      "optional_ingredients": [
+        "lemon",
+        "black pepper"
+      ],
+      "common_substitutions": {
+        "chicken breast": "chicken thigh for juicier result"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 2,
+      "instructions": [
+        "Marinate chicken with oil, garlic, herbs, salt and pepper.",
+        "Rest 15 minutes.",
+        "Grill or pan-sear on medium-high heat, 6-7 minutes per side until cooked through.",
+        "Rest 5 minutes before slicing."
+      ],
+      "cooking_tips": [
+        "Resting the meat after cooking keeps it juicy."
+      ],
+      "embedding_text": "Grilled Chicken Breast International non-vegetarian gluten-free dairy-free chicken breast olive oil garlic herbs lemon black pepper"
+    },
+    {
+      "id": "R057",
+      "title": "Fish Curry",
+      "cuisine": "Indian (Coastal)",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "fish fillets",
+        "coconut milk",
+        "tamarind",
+        "spices",
+        "onion"
+      ],
+      "optional_ingredients": [
+        "curry leaves",
+        "green chili"
+      ],
+      "common_substitutions": {
+        "coconut milk": "cream",
+        "tamarind": "lemon juice"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Saute onion and spices until fragrant.",
+        "Add coconut milk and tamarind water, simmer.",
+        "Add fish fillets, cook gently until just done (do not overcook).",
+        "Garnish and serve."
+      ],
+      "cooking_tips": [
+        "Add fish last and simmer gently to avoid it breaking apart."
+      ],
+      "embedding_text": "Fish Curry Indian (Coastal) non-vegetarian gluten-free dairy-free fish fillets coconut milk tamarind spices onion curry leaves green chili"
+    },
+    {
+      "id": "R058",
+      "title": "Chicken Tikka",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "chicken",
+        "yogurt",
+        "spices",
+        "lemon"
+      ],
+      "optional_ingredients": [
+        "onion",
+        "capsicum for skewers"
+      ],
+      "common_substitutions": {
+        "yogurt": "dairy-free yogurt"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Marinate chicken in yogurt, spices, and lemon for at least 30 minutes.",
+        "Thread onto skewers with vegetables if desired.",
+        "Grill or bake until charred and cooked through."
+      ],
+      "cooking_tips": [
+        "Marinating longer (a few hours) deepens the flavor significantly."
+      ],
+      "embedding_text": "Chicken Tikka Indian non-vegetarian gluten-free chicken yogurt spices lemon onion capsicum for skewers"
+    },
+    {
+      "id": "R059",
+      "title": "Mutton Curry",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "mutton",
+        "onion",
+        "tomato",
+        "garlic",
+        "ginger",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "yogurt",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "mutton": "chicken (reduce cooking time significantly)"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 60,
+      "servings": 4,
+      "instructions": [
+        "Marinate mutton with yogurt and spices.",
+        "Saute onion, garlic, ginger until deep golden.",
+        "Add mutton, sear, then add tomato and spices.",
+        "Add water, pressure cook until tender.",
+        "Garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Slow cooking or pressure cooking is essential for tender mutton."
+      ],
+      "embedding_text": "Mutton Curry Indian non-vegetarian gluten-free dairy-free mutton onion tomato garlic ginger spices yogurt coriander"
+    },
+    {
+      "id": "R060",
+      "title": "Shrimp Scampi",
+      "cuisine": "Italian/American",
+      "diet_tags": [
+        "non-vegetarian"
+      ],
+      "core_ingredients": [
+        "shrimp",
+        "garlic",
+        "butter",
+        "white wine",
+        "pasta"
+      ],
+      "optional_ingredients": [
+        "chili flakes",
+        "parsley"
+      ],
+      "common_substitutions": {
+        "white wine": "chicken stock + lemon juice"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Boil pasta if serving with it.",
+        "Saute garlic in butter until fragrant.",
+        "Add shrimp, cook until pink.",
+        "Add wine, simmer briefly, toss with pasta and garnish."
+      ],
+      "cooking_tips": [
+        "Do not overcook shrimp \u2014 remove from heat as soon as they turn pink and curl."
+      ],
+      "embedding_text": "Shrimp Scampi Italian/American non-vegetarian shrimp garlic butter white wine pasta chili flakes parsley"
+    },
+    {
+      "id": "R061",
+      "title": "Roast Chicken",
+      "cuisine": "International",
+      "diet_tags": [
+        "non-vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "whole chicken",
+        "butter/oil",
+        "garlic",
+        "herbs",
+        "lemon"
+      ],
+      "optional_ingredients": [
+        "potatoes",
+        "carrots"
+      ],
+      "common_substitutions": {
+        "butter": "oil for dairy-free"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 60,
+      "servings": 4,
+      "instructions": [
+        "Rub chicken with butter/oil, garlic, herbs, salt and pepper, inside and out.",
+        "Stuff cavity with lemon and herbs.",
+        "Roast in oven until internal temperature reaches safe doneness, basting occasionally.",
+        "Rest 10 minutes before carving."
+      ],
+      "cooking_tips": [
+        "Resting after roasting redistributes juices for a moister result."
+      ],
+      "embedding_text": "Roast Chicken International non-vegetarian gluten-free dairy-free whole chicken butter/oil garlic herbs lemon potatoes carrots"
+    },
+    {
+      "id": "R062",
+      "title": "Masala Papad",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "papad",
+        "onion",
+        "tomato",
+        "chaat masala"
+      ],
+      "optional_ingredients": [
+        "coriander",
+        "green chili"
+      ],
+      "common_substitutions": {
+        "papad": "any lentil/rice cracker"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 5,
+      "servings": 2,
+      "instructions": [
+        "Roast or fry papad until crisp.",
+        "Top with finely chopped onion, tomato, and chaat masala.",
+        "Serve immediately."
+      ],
+      "cooking_tips": [
+        "Serve immediately after topping to keep the papad crisp."
+      ],
+      "embedding_text": "Masala Papad Indian vegan vegetarian gluten-free papad onion tomato chaat masala coriander green chili"
+    },
+    {
+      "id": "R063",
+      "title": "Fruit Chaat",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "seasonal fruits",
+        "chaat masala",
+        "lemon"
+      ],
+      "optional_ingredients": [
+        "mint leaves"
+      ],
+      "common_substitutions": {
+        "chaat masala": "black salt + pepper mix"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "servings": 2,
+      "instructions": [
+        "Chop assorted fruits into bite-size pieces.",
+        "Toss with chaat masala and lemon juice.",
+        "Garnish with mint and serve chilled."
+      ],
+      "cooking_tips": [
+        "A great way to use up ripening fruits before they spoil."
+      ],
+      "embedding_text": "Fruit Chaat Indian vegan vegetarian gluten-free dairy-free seasonal fruits chaat masala lemon mint leaves"
+    },
+    {
+      "id": "R064",
+      "title": "Roasted Chickpeas",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "chickpeas",
+        "olive oil",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "chili powder",
+        "garlic powder"
+      ],
+      "common_substitutions": {
+        "chickpeas": "canned or boiled dried chickpeas"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Pat chickpeas completely dry.",
+        "Toss with oil and spices.",
+        "Roast in oven or air fryer until crisp, shaking occasionally."
+      ],
+      "cooking_tips": [
+        "Drying chickpeas thoroughly before roasting is key to crispiness."
+      ],
+      "embedding_text": "Roasted Chickpeas International vegan vegetarian gluten-free dairy-free chickpeas olive oil spices chili powder garlic powder"
+    },
+    {
+      "id": "R065",
+      "title": "Banana Oat Cookies",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free (certified oats)"
+      ],
+      "core_ingredients": [
+        "banana",
+        "oats",
+        "cinnamon"
+      ],
+      "optional_ingredients": [
+        "chocolate chips",
+        "nuts"
+      ],
+      "common_substitutions": {
+        "banana": "applesauce"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Mash banana thoroughly.",
+        "Mix with oats and cinnamon (and mix-ins if using).",
+        "Shape into small rounds on a baking tray.",
+        "Bake until lightly golden and set."
+      ],
+      "cooking_tips": [
+        "A 2-ingredient base (banana + oats) makes this a flexible, forgiving recipe for using overripe bananas."
+      ],
+      "embedding_text": "Banana Oat Cookies International vegetarian vegan gluten-free (certified oats) banana oats cinnamon chocolate chips nuts"
+    },
+    {
+      "id": "R066",
+      "title": "Vegetable Pakora",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "besan",
+        "mixed vegetables",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "rice flour for crispiness"
+      ],
+      "common_substitutions": {
+        "besan": "no direct substitute"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Make a thick batter with besan, water, and spices.",
+        "Dip sliced vegetables into batter.",
+        "Deep fry until golden and crisp.",
+        "Serve hot with chutney."
+      ],
+      "cooking_tips": [
+        "Adding a spoon of hot oil to the batter makes pakoras extra crispy."
+      ],
+      "embedding_text": "Vegetable Pakora Indian vegan vegetarian gluten-free besan mixed vegetables spices rice flour for crispiness"
+    },
+    {
+      "id": "R067",
+      "title": "Rice Pudding (Kheer)",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "milk",
+        "sugar",
+        "cardamom"
+      ],
+      "optional_ingredients": [
+        "nuts",
+        "saffron"
+      ],
+      "common_substitutions": {
+        "milk": "any plant-based milk for vegan"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 40,
+      "servings": 4,
+      "instructions": [
+        "Cook rice in milk on low heat, stirring occasionally, until thick and creamy.",
+        "Add sugar and cardamom, simmer 10 more minutes.",
+        "Garnish with nuts and saffron, serve warm or chilled."
+      ],
+      "cooking_tips": [
+        "Low and slow cooking is essential \u2014 do not rush this dish."
+      ],
+      "embedding_text": "Rice Pudding (Kheer) Indian vegetarian gluten-free rice milk sugar cardamom nuts saffron"
+    },
+    {
+      "id": "R068",
+      "title": "Chocolate Banana Smoothie",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "banana",
+        "milk",
+        "cocoa powder"
+      ],
+      "optional_ingredients": [
+        "honey",
+        "peanut butter"
+      ],
+      "common_substitutions": {
+        "milk": "plant-based milk"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "servings": 1,
+      "instructions": [
+        "Add all ingredients to a blender.",
+        "Blend until smooth.",
+        "Pour and serve chilled."
+      ],
+      "cooking_tips": [
+        "Freeze banana slices in advance for a thicker, colder smoothie."
+      ],
+      "embedding_text": "Chocolate Banana Smoothie International vegetarian vegan option gluten-free banana milk cocoa powder honey peanut butter"
+    },
+    {
+      "id": "R069",
+      "title": "Vegetable Momos",
+      "cuisine": "Tibetan/Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "core_ingredients": [
+        "flour",
+        "mixed vegetables (finely chopped)",
+        "garlic",
+        "ginger"
+      ],
+      "optional_ingredients": [
+        "soy sauce",
+        "spring onion"
+      ],
+      "common_substitutions": {
+        "flour": "whole wheat flour"
+      },
+      "prep_time_minutes": 30,
+      "cook_time_minutes": 20,
+      "servings": 4,
+      "instructions": [
+        "Make a stiff dough with flour and water; rest 20 minutes.",
+        "Saute finely chopped vegetables with garlic and ginger.",
+        "Roll dough into small circles, fill and pleat into dumplings.",
+        "Steam for 15-18 minutes until translucent."
+      ],
+      "cooking_tips": [
+        "Chop the filling very finely so it cooks through during the short steaming time."
+      ],
+      "embedding_text": "Vegetable Momos Tibetan/Indian vegetarian vegan flour mixed vegetables (finely chopped) garlic ginger soy sauce spring onion"
+    },
+    {
+      "id": "R070",
+      "title": "Vegetable Spring Rolls",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "core_ingredients": [
+        "spring roll wrappers",
+        "cabbage",
+        "carrot",
+        "garlic"
+      ],
+      "optional_ingredients": [
+        "soy sauce",
+        "bean sprouts"
+      ],
+      "common_substitutions": {
+        "spring roll wrappers": "can substitute with thin crepe if unavailable"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15,
+      "servings": 4,
+      "instructions": [
+        "Stir-fry julienned vegetables with garlic and soy sauce until just tender; cool.",
+        "Place filling on wrappers, roll tightly, sealing edges with water.",
+        "Deep fry or bake until golden and crisp."
+      ],
+      "cooking_tips": [
+        "Let the filling cool completely before wrapping to prevent soggy wrappers."
+      ],
+      "embedding_text": "Vegetable Spring Rolls Chinese vegetarian vegan spring roll wrappers cabbage carrot garlic soy sauce bean sprouts"
+    },
+    {
+      "id": "R071",
+      "title": "Stuffed Bell Peppers",
+      "cuisine": "American/Fusion",
+      "diet_tags": [
+        "vegetarian option",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "bell peppers",
+        "rice",
+        "mixed vegetables or ground meat",
+        "cheese"
+      ],
+      "optional_ingredients": [
+        "tomato sauce",
+        "herbs"
+      ],
+      "common_substitutions": {
+        "ground meat": "cooked lentils or crumbled paneer for vegetarian"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 35,
+      "servings": 4,
+      "instructions": [
+        "Halve peppers and remove seeds.",
+        "Mix cooked rice with vegetables/meat and seasoning.",
+        "Stuff peppers with mixture, top with cheese.",
+        "Bake until peppers are tender and cheese is golden."
+      ],
+      "cooking_tips": [
+        "Par-boiling peppers briefly beforehand ensures they cook evenly in the oven."
+      ],
+      "embedding_text": "Stuffed Bell Peppers American/Fusion vegetarian option gluten-free bell peppers rice mixed vegetables or ground meat cheese tomato sauce herbs"
+    },
+    {
+      "id": "R072",
+      "title": "Vegetable Frittata",
+      "cuisine": "Italian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "eggs",
+        "mixed vegetables",
+        "cheese",
+        "onion"
+      ],
+      "optional_ingredients": [
+        "herbs"
+      ],
+      "common_substitutions": {
+        "cheese": "omit or use dairy-free cheese"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Saute onion and vegetables in an oven-safe pan.",
+        "Whisk eggs with salt and pepper, pour over vegetables.",
+        "Cook on stovetop until edges set, then transfer to oven to finish cooking through.",
+        "Top with cheese before the last few minutes of baking."
+      ],
+      "cooking_tips": [
+        "A great way to use up small amounts of many different vegetables."
+      ],
+      "embedding_text": "Vegetable Frittata Italian vegetarian gluten-free eggs mixed vegetables cheese onion herbs"
+    },
+    {
+      "id": "R073",
+      "title": "Baingan Bharta",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "eggplant",
+        "onion",
+        "tomato",
+        "garlic",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "coriander",
+        "green chili"
+      ],
+      "common_substitutions": {
+        "eggplant": "no direct substitute; essential to this dish"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 30,
+      "servings": 3,
+      "instructions": [
+        "Roast eggplant directly over flame or in oven until charred and soft.",
+        "Peel and mash the flesh.",
+        "Saute onion, garlic, tomato and spices until cooked down.",
+        "Add mashed eggplant, mix well and simmer 5 minutes."
+      ],
+      "cooking_tips": [
+        "Charring the eggplant directly over a flame gives the dish its signature smoky flavor."
+      ],
+      "embedding_text": "Baingan Bharta Indian vegan vegetarian gluten-free eggplant onion tomato garlic spices coriander green chili"
+    },
+    {
+      "id": "R074",
+      "title": "Aloo Gobi",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "potato",
+        "cauliflower",
+        "onion",
+        "tomato",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "coriander",
+        "ginger"
+      ],
+      "common_substitutions": {
+        "cauliflower": "broccoli in a pinch"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Saute onion and spices until fragrant.",
+        "Add potato and cauliflower, mix well.",
+        "Add tomato, cover and cook on low heat until vegetables are tender, stirring occasionally.",
+        "Garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Cooking covered on low heat allows the vegetables to steam-cook without needing much oil."
+      ],
+      "embedding_text": "Aloo Gobi Indian vegan vegetarian gluten-free dairy-free potato cauliflower onion tomato spices coriander ginger"
+    },
+    {
+      "id": "R075",
+      "title": "Bhindi Fry",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "okra",
+        "onion",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "lemon",
+        "garlic"
+      ],
+      "common_substitutions": {
+        "okra": "no direct substitute"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Wash and dry okra thoroughly, slice.",
+        "Saute onion until golden.",
+        "Add okra and spices, cook uncovered on medium heat, stirring occasionally until non-slimy and lightly crisp."
+      ],
+      "cooking_tips": [
+        "Drying okra completely before cooking and cooking uncovered reduces sliminess."
+      ],
+      "embedding_text": "Bhindi Fry Indian vegan vegetarian gluten-free dairy-free okra onion spices lemon garlic"
+    },
+    {
+      "id": "R076",
+      "title": "Vegetable Kofta Curry",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "mixed grated vegetables",
+        "besan",
+        "onion",
+        "tomato",
+        "cream"
+      ],
+      "optional_ingredients": [
+        "cashews",
+        "spices"
+      ],
+      "common_substitutions": {
+        "cream": "cashew paste or milk"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 30,
+      "servings": 4,
+      "instructions": [
+        "Mix grated vegetables with besan and spices, shape into balls, deep fry until golden.",
+        "Prepare an onion-tomato gravy base, simmer until thick.",
+        "Add cream, simmer briefly.",
+        "Add fried koftas just before serving to keep them from getting soggy."
+      ],
+      "cooking_tips": [
+        "Add koftas right before serving so they don't turn mushy in the gravy."
+      ],
+      "embedding_text": "Vegetable Kofta Curry Indian vegetarian gluten-free mixed grated vegetables besan onion tomato cream cashews spices"
+    },
+    {
+      "id": "R077",
+      "title": "Masala Dosa",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "dosa batter",
+        "potato",
+        "onion",
+        "mustard seeds",
+        "curry leaves"
+      ],
+      "optional_ingredients": [
+        "chutney",
+        "sambhar"
+      ],
+      "common_substitutions": {
+        "dosa batter": "rava/oats batter substitute"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Prepare potato masala: temper mustard seeds and curry leaves, saute onion, add boiled mashed potato and turmeric.",
+        "Spread dosa batter thin on a hot pan, cook until crisp.",
+        "Place potato masala in the center, fold and serve with chutney and sambhar."
+      ],
+      "cooking_tips": [
+        "Keep the potato masala slightly warm before filling for the best texture contrast."
+      ],
+      "embedding_text": "Masala Dosa South Indian vegetarian vegan option gluten-free dosa batter potato onion mustard seeds curry leaves chutney sambhar"
+    },
+    {
+      "id": "R078",
+      "title": "Vegetable Manchurian",
+      "cuisine": "Indo-Chinese",
+      "diet_tags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "core_ingredients": [
+        "mixed vegetables",
+        "cornflour",
+        "garlic",
+        "soy sauce"
+      ],
+      "optional_ingredients": [
+        "spring onion",
+        "vinegar"
+      ],
+      "common_substitutions": {
+        "cornflour": "rice flour"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Mix grated vegetables with cornflour and spices, shape into balls, deep fry until golden.",
+        "Prepare a garlic-soy sauce gravy, thickened lightly with cornflour slurry.",
+        "Add fried vegetable balls to the gravy just before serving, toss and garnish."
+      ],
+      "cooking_tips": [
+        "For 'dry' Manchurian, skip the gravy and toss balls directly in the sauce."
+      ],
+      "embedding_text": "Vegetable Manchurian Indo-Chinese vegetarian vegan mixed vegetables cornflour garlic soy sauce spring onion vinegar"
+    },
+    {
+      "id": "R079",
+      "title": "Sabudana Khichdi",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "soaked sago (sabudana)",
+        "potato",
+        "peanuts",
+        "cumin seeds"
+      ],
+      "optional_ingredients": [
+        "green chili",
+        "lemon",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "peanuts": "cashews"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Soak sabudana overnight or for several hours until soft.",
+        "Heat oil, temper cumin seeds.",
+        "Add potato and peanuts, saute until potato is cooked.",
+        "Add soaked sabudana, salt, and toss gently until translucent.",
+        "Finish with lemon juice and coriander."
+      ],
+      "cooking_tips": [
+        "Do not over-soak sabudana or it turns mushy and sticky."
+      ],
+      "embedding_text": "Sabudana Khichdi Indian vegetarian vegan option gluten-free soaked sago (sabudana) potato peanuts cumin seeds green chili lemon coriander"
+    },
+    {
+      "id": "R080",
+      "title": "Vegetable Hakka Noodles",
+      "cuisine": "Indo-Chinese",
+      "diet_tags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "core_ingredients": [
+        "noodles",
+        "cabbage",
+        "carrot",
+        "capsicum",
+        "soy sauce",
+        "garlic"
+      ],
+      "optional_ingredients": [
+        "spring onion",
+        "vinegar"
+      ],
+      "common_substitutions": {
+        "noodles": "rice noodles for gluten-free"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Boil noodles al dente, drain and toss with a little oil to prevent sticking.",
+        "Stir-fry garlic and julienned vegetables on high heat.",
+        "Add noodles, soy sauce, and vinegar, toss thoroughly on high flame.",
+        "Garnish with spring onion."
+      ],
+      "cooking_tips": [
+        "Tossing on high heat in a wide pan gives the smoky 'wok hei' flavor."
+      ],
+      "embedding_text": "Vegetable Hakka Noodles Indo-Chinese vegetarian vegan noodles cabbage carrot capsicum soy sauce garlic spring onion vinegar"
+    },
+    {
+      "id": "R081",
+      "title": "Methi Thepla",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "whole wheat flour",
+        "fenugreek leaves",
+        "spices",
+        "oil"
+      ],
+      "optional_ingredients": [
+        "yogurt for dough"
+      ],
+      "common_substitutions": {
+        "fenugreek leaves": "spinach in a pinch (different flavor)"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 4,
+      "instructions": [
+        "Knead flour with chopped fenugreek leaves, spices, and a little oil into a soft dough.",
+        "Roll into thin rounds.",
+        "Cook on a hot tawa with a little oil until golden spots appear on both sides."
+      ],
+      "cooking_tips": [
+        "Theplas stay fresh for days, making them great for travel or meal prep."
+      ],
+      "embedding_text": "Methi Thepla Indian vegan vegetarian whole wheat flour fenugreek leaves spices oil yogurt for dough"
+    },
+    {
+      "id": "R082",
+      "title": "Vegetable Uttapam",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "dosa batter",
+        "onion",
+        "tomato",
+        "capsicum"
+      ],
+      "optional_ingredients": [
+        "coriander",
+        "green chili"
+      ],
+      "common_substitutions": {
+        "dosa batter": "rava/oats batter"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Spread dosa batter thick on a hot pan (thicker than regular dosa).",
+        "Sprinkle chopped vegetables on top while batter is still wet.",
+        "Cook on low-medium heat until golden, flip and cook the other side briefly."
+      ],
+      "cooking_tips": [
+        "Cooking on low heat ensures the thick batter cooks through without burning."
+      ],
+      "embedding_text": "Vegetable Uttapam South Indian vegetarian vegan gluten-free dosa batter onion tomato capsicum coriander green chili"
+    },
+    {
+      "id": "R083",
+      "title": "Rasam",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "tomato",
+        "tamarind",
+        "rasam powder",
+        "garlic"
+      ],
+      "optional_ingredients": [
+        "curry leaves",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "tamarind": "lemon juice"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Boil tomato, tamarind water, and rasam powder together.",
+        "Simmer until flavors combine, about 10 minutes.",
+        "Temper mustard seeds, garlic, and curry leaves in oil, pour over rasam.",
+        "Garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Do not over-boil after adding tamarind, as it can turn bitter."
+      ],
+      "embedding_text": "Rasam South Indian vegan vegetarian gluten-free dairy-free tomato tamarind rasam powder garlic curry leaves coriander"
+    },
+    {
+      "id": "R084",
+      "title": "Vegetable Idli",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "idli batter",
+        "grated carrot",
+        "peas"
+      ],
+      "optional_ingredients": [
+        "mustard seeds",
+        "curry leaves"
+      ],
+      "common_substitutions": {
+        "idli batter": "rava idli batter substitute"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "servings": 4,
+      "instructions": [
+        "Mix grated vegetables into idli batter.",
+        "Pour into greased idli molds.",
+        "Steam for 10-12 minutes until a toothpick comes out clean.",
+        "Serve with chutney or sambhar."
+      ],
+      "cooking_tips": [
+        "Do not overfill molds \u2014 batter rises slightly during steaming."
+      ],
+      "embedding_text": "Vegetable Idli South Indian vegan vegetarian gluten-free idli batter grated carrot peas mustard seeds curry leaves"
+    },
+    {
+      "id": "R085",
+      "title": "Paneer Bhurji",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "paneer",
+        "onion",
+        "tomato",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "capsicum",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "paneer": "tofu, crumbled"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Saute onion until translucent.",
+        "Add tomato and spices, cook until soft.",
+        "Crumble in paneer, mix well and cook 3-4 minutes.",
+        "Garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Crumbling paneer by hand gives better texture than grating."
+      ],
+      "embedding_text": "Paneer Bhurji Indian vegetarian gluten-free paneer onion tomato spices capsicum coriander"
+    },
+    {
+      "id": "R086",
+      "title": "Vegetable Semiya Upma",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "vermicelli",
+        "mixed vegetables",
+        "mustard seeds",
+        "curry leaves"
+      ],
+      "optional_ingredients": [
+        "peanuts",
+        "lemon"
+      ],
+      "common_substitutions": {
+        "vermicelli": "broken wheat noodles"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Roast vermicelli lightly until golden; set aside.",
+        "Temper mustard seeds, curry leaves, peanuts in oil.",
+        "Saute vegetables until slightly soft.",
+        "Add water, bring to boil, add roasted vermicelli, cook covered until soft."
+      ],
+      "cooking_tips": [
+        "Roasting vermicelli first prevents it from turning mushy."
+      ],
+      "embedding_text": "Vegetable Semiya Upma South Indian vegetarian vegan option vermicelli mixed vegetables mustard seeds curry leaves peanuts lemon"
+    },
+    {
+      "id": "R087",
+      "title": "Chilli Paneer",
+      "cuisine": "Indo-Chinese",
+      "diet_tags": [
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "paneer",
+        "capsicum",
+        "onion",
+        "soy sauce",
+        "garlic",
+        "cornflour"
+      ],
+      "optional_ingredients": [
+        "spring onion",
+        "vinegar"
+      ],
+      "common_substitutions": {
+        "paneer": "tofu or chicken",
+        "cornflour": "rice flour"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Coat paneer cubes in cornflour, shallow fry until golden; set aside.",
+        "Stir-fry garlic, onion, and capsicum on high heat.",
+        "Add soy sauce and a little cornflour slurry, toss with fried paneer.",
+        "Garnish with spring onion."
+      ],
+      "cooking_tips": [
+        "For 'dry' chilli paneer, skip the slurry and toss directly in sauce."
+      ],
+      "embedding_text": "Chilli Paneer Indo-Chinese vegetarian paneer capsicum onion soy sauce garlic cornflour spring onion vinegar"
+    },
+    {
+      "id": "R088",
+      "title": "Vegetable Dhokla",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "besan",
+        "yogurt",
+        "mixed grated vegetables",
+        "mustard seeds"
+      ],
+      "optional_ingredients": [
+        "curry leaves",
+        "green chili"
+      ],
+      "common_substitutions": {
+        "yogurt": "lemon juice + water for vegan"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 4,
+      "instructions": [
+        "Mix besan, yogurt, grated vegetables, and a leavening agent into a batter.",
+        "Pour into a greased plate/tin, steam for 15-18 minutes until a toothpick comes out clean.",
+        "Temper mustard seeds and curry leaves, pour over cooled dhokla, cut into squares."
+      ],
+      "cooking_tips": [
+        "Steam on medium heat \u2014 too high can make the dhokla uneven or rubbery."
+      ],
+      "embedding_text": "Vegetable Dhokla Indian vegetarian vegan option gluten-free besan yogurt mixed grated vegetables mustard seeds curry leaves green chili"
+    },
+    {
+      "id": "R089",
+      "title": "Vegetable Kathi Roll",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "paratha/flatbread",
+        "mixed vegetables",
+        "onion",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "chutney",
+        "egg"
+      ],
+      "common_substitutions": {
+        "paratha": "tortilla"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "instructions": [
+        "Stir-fry vegetables with onion and spices until cooked.",
+        "Warm flatbread, spread chutney.",
+        "Add filling, roll tightly and optionally toast the roll briefly on a pan."
+      ],
+      "cooking_tips": [
+        "Toasting the rolled wrap briefly on a hot pan seals it and adds crunch."
+      ],
+      "embedding_text": "Vegetable Kathi Roll Indian vegetarian vegan option paratha/flatbread mixed vegetables onion spices chutney egg"
+    },
+    {
+      "id": "R090",
+      "title": "Vegetable Pancakes (Savory)",
+      "cuisine": "Fusion",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "grated vegetables",
+        "flour",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "cheese",
+        "herbs"
+      ],
+      "common_substitutions": {
+        "flour": "chickpea flour for gluten-free"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Mix grated vegetables with flour, spices, and a little water into a thick batter.",
+        "Pour spoonfuls onto a hot greased pan, flatten slightly.",
+        "Cook until golden on both sides."
+      ],
+      "cooking_tips": [
+        "Squeeze excess water from grated vegetables first to keep pancakes from turning soggy."
+      ],
+      "embedding_text": "Vegetable Pancakes (Savory) Fusion vegetarian vegan option grated vegetables flour spices cheese herbs"
+    },
+    {
+      "id": "R091",
+      "title": "Vegetable Fried Rice (Basic)",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free (with tamari)"
+      ],
+      "core_ingredients": [
+        "cooked rice",
+        "mixed vegetables",
+        "garlic",
+        "soy sauce"
+      ],
+      "optional_ingredients": [
+        "spring onion",
+        "sesame oil"
+      ],
+      "common_substitutions": {
+        "soy sauce": "tamari"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Saute garlic and finely chopped vegetables on high heat.",
+        "Add cold cooked rice and soy sauce, toss thoroughly.",
+        "Garnish with spring onion and serve."
+      ],
+      "cooking_tips": [
+        "Using cold, day-old rice prevents clumping and gives better fried-rice texture."
+      ],
+      "embedding_text": "Vegetable Fried Rice (Basic) Chinese vegan vegetarian gluten-free (with tamari) cooked rice mixed vegetables garlic soy sauce spring onion sesame oil"
+    },
+    {
+      "id": "R092",
+      "title": "Vegetable Biryani (Quick Version)",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "mixed vegetables",
+        "yogurt",
+        "biryani masala"
+      ],
+      "optional_ingredients": [
+        "mint",
+        "fried onion"
+      ],
+      "common_substitutions": {
+        "yogurt": "coconut milk"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 30,
+      "servings": 4,
+      "instructions": [
+        "Saute vegetables with biryani masala and yogurt until partially cooked.",
+        "Layer with par-cooked rice in a pot.",
+        "Cover tightly and cook on low heat for 15-20 minutes (dum style).",
+        "Garnish with mint and fried onion before serving."
+      ],
+      "cooking_tips": [
+        "A quicker one-pot version of traditional dum biryani for weeknight cooking."
+      ],
+      "embedding_text": "Vegetable Biryani (Quick Version) Indian vegetarian gluten-free rice mixed vegetables yogurt biryani masala mint fried onion"
+    },
+    {
+      "id": "R093",
+      "title": "Stuffed Paratha (Mixed Vegetable)",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian"
+      ],
+      "core_ingredients": [
+        "whole wheat flour",
+        "grated mixed vegetables",
+        "spices",
+        "ghee"
+      ],
+      "optional_ingredients": [
+        "coriander"
+      ],
+      "common_substitutions": {
+        "ghee": "oil"
+      },
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Squeeze excess water from grated vegetables, mix with spices for filling.",
+        "Stuff dough balls with filling, roll gently into flatbread.",
+        "Cook on a hot tawa with ghee/oil until golden on both sides."
+      ],
+      "cooking_tips": [
+        "Squeezing moisture from the filling prevents the paratha from tearing while rolling."
+      ],
+      "embedding_text": "Stuffed Paratha (Mixed Vegetable) Indian vegetarian whole wheat flour grated mixed vegetables spices ghee coriander"
+    },
+    {
+      "id": "R094",
+      "title": "Vegetable Ramen (Quick)",
+      "cuisine": "Japanese/Fusion",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "ramen noodles",
+        "mixed vegetables",
+        "garlic",
+        "soy sauce",
+        "vegetable stock"
+      ],
+      "optional_ingredients": [
+        "boiled egg",
+        "spring onion"
+      ],
+      "common_substitutions": {
+        "ramen noodles": "any instant or fresh noodles",
+        "soy sauce": "tamari"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "servings": 2,
+      "instructions": [
+        "Boil stock with garlic and soy sauce.",
+        "Cook noodles separately as per package instructions.",
+        "Blanch or stir-fry vegetables briefly.",
+        "Assemble noodles in broth, top with vegetables and egg if using."
+      ],
+      "cooking_tips": [
+        "A soft-boiled egg with a jammy yolk is the classic ramen topping."
+      ],
+      "embedding_text": "Vegetable Ramen (Quick) Japanese/Fusion vegetarian vegan option ramen noodles mixed vegetables garlic soy sauce vegetable stock boiled egg spring onion"
+    },
+    {
+      "id": "R095",
+      "title": "Vegetable Korma Rice Bowl",
+      "cuisine": "Fusion",
+      "diet_tags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "mixed vegetables",
+        "cashew paste",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "raisins",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "cashew paste": "coconut milk"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Prepare vegetable korma as a thick curry using cashew paste and spices.",
+        "Serve over a bowl of steamed rice.",
+        "Garnish with coriander."
+      ],
+      "cooking_tips": [
+        "A convenient bowl-format twist on a traditional curry-and-rice meal."
+      ],
+      "embedding_text": "Vegetable Korma Rice Bowl Fusion vegetarian gluten-free rice mixed vegetables cashew paste spices raisins coriander"
+    },
+    {
+      "id": "R096",
+      "title": "Peanut Chutney",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "roasted peanuts",
+        "garlic",
+        "tamarind",
+        "red chili"
+      ],
+      "optional_ingredients": [
+        "curry leaves"
+      ],
+      "common_substitutions": {
+        "tamarind": "lemon juice"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 5,
+      "servings": 4,
+      "instructions": [
+        "Blend peanuts, garlic, tamarind, red chili and salt with a little water until smooth.",
+        "Temper mustard seeds and curry leaves in oil, pour over chutney."
+      ],
+      "cooking_tips": [
+        "Adjust water quantity to control chutney consistency \u2014 thicker for dosa, thinner for idli."
+      ],
+      "embedding_text": "Peanut Chutney South Indian vegan vegetarian gluten-free dairy-free roasted peanuts garlic tamarind red chili curry leaves"
+    },
+    {
+      "id": "R097",
+      "title": "Coconut Chutney",
+      "cuisine": "South Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "fresh coconut",
+        "roasted gram dal",
+        "green chili",
+        "ginger"
+      ],
+      "optional_ingredients": [
+        "curry leaves",
+        "mustard seeds"
+      ],
+      "common_substitutions": {
+        "fresh coconut": "desiccated coconut soaked in water"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 5,
+      "servings": 4,
+      "instructions": [
+        "Blend coconut, roasted gram dal, green chili, ginger, and salt with water until smooth.",
+        "Temper mustard seeds and curry leaves in oil, pour over chutney."
+      ],
+      "cooking_tips": [
+        "Use fresh coconut for the best flavor; frozen grated coconut also works well."
+      ],
+      "embedding_text": "Coconut Chutney South Indian vegan vegetarian gluten-free dairy-free fresh coconut roasted gram dal green chili ginger curry leaves mustard seeds"
+    },
+    {
+      "id": "R098",
+      "title": "Mint Coriander Chutney",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "mint leaves",
+        "coriander leaves",
+        "green chili",
+        "lemon"
+      ],
+      "optional_ingredients": [
+        "yogurt for creamier version"
+      ],
+      "common_substitutions": {
+        "yogurt": "omit for vegan"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "servings": 4,
+      "instructions": [
+        "Blend mint, coriander, green chili, lemon juice, and salt with a little water until smooth.",
+        "Adjust consistency and seasoning to taste."
+      ],
+      "cooking_tips": [
+        "Adding a small piece of ginger brightens the chutney's flavor."
+      ],
+      "embedding_text": "Mint Coriander Chutney Indian vegan vegetarian gluten-free dairy-free mint leaves coriander leaves green chili lemon yogurt for creamier version"
+    },
+    {
+      "id": "R099",
+      "title": "Vegetable Kabab (Shami Style)",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "boiled mixed vegetables/lentils",
+        "besan",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "coriander",
+        "onion"
+      ],
+      "common_substitutions": {
+        "besan": "breadcrumbs"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "servings": 3,
+      "instructions": [
+        "Mash boiled vegetables/lentils with besan and spices.",
+        "Shape into flat patties.",
+        "Shallow fry on a pan until golden and crisp on both sides."
+      ],
+      "cooking_tips": [
+        "Chilling patties for 10-15 minutes before frying helps them hold together."
+      ],
+      "embedding_text": "Vegetable Kabab (Shami Style) Indian vegetarian vegan option boiled mixed vegetables/lentils besan spices coriander onion"
+    },
+    {
+      "id": "R100",
+      "title": "Vegetable Biryani Rice Salad (Cold)",
+      "cuisine": "Fusion",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "cooked rice",
+        "mixed roasted vegetables",
+        "biryani masala",
+        "lemon"
+      ],
+      "optional_ingredients": [
+        "mint",
+        "cashews"
+      ],
+      "common_substitutions": {
+        "biryani masala": "garam masala"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 10,
+      "servings": 3,
+      "instructions": [
+        "Toss cooled cooked rice with roasted vegetables and biryani masala.",
+        "Squeeze lemon juice, garnish with mint and cashews, serve chilled or at room temperature."
+      ],
+      "cooking_tips": [
+        "A creative cold-salad way to repurpose leftover biryani rice."
+      ],
+      "embedding_text": "Vegetable Biryani Rice Salad (Cold) Fusion vegetarian vegan gluten-free cooked rice mixed roasted vegetables biryani masala lemon mint cashews"
+    },
+    {
+      "id": "R101",
+      "title": "Vegetable Stir Fry (Simple)",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "any available vegetables",
+        "garlic",
+        "oil",
+        "soy sauce or salt"
+      ],
+      "optional_ingredients": [
+        "ginger",
+        "chili flakes"
+      ],
+      "common_substitutions": {
+        "soy sauce": "salt and pepper if unavailable"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 10,
+      "servings": 2,
+      "instructions": [
+        "Heat oil, saute garlic (and ginger if using).",
+        "Add chopped vegetables, stir-fry on high heat until crisp-tender.",
+        "Season with soy sauce or salt and pepper, toss and serve."
+      ],
+      "cooking_tips": [
+        "A flexible base recipe \u2014 works with almost any combination of vegetables on hand."
+      ],
+      "embedding_text": "Vegetable Stir Fry (Simple) International vegan vegetarian gluten-free dairy-free any available vegetables garlic oil soy sauce or salt ginger chili flakes"
+    },
+    {
+      "id": "R102",
+      "title": "Mixed Dal (Panchmel Dal)",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "five mixed lentils",
+        "onion",
+        "tomato",
+        "garlic",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "ghee",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "ghee": "oil for vegan"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 35,
+      "servings": 4,
+      "instructions": [
+        "Wash and pressure-cook mixed lentils with turmeric until soft.",
+        "Prepare a tempering with garlic, onion, tomato, and spices.",
+        "Pour tempering over cooked lentils, simmer 5-10 minutes, garnish with coriander."
+      ],
+      "cooking_tips": [
+        "Using a mix of lentils gives a more complex flavor and texture than a single dal."
+      ],
+      "embedding_text": "Mixed Dal (Panchmel Dal) Indian vegan vegetarian gluten-free five mixed lentils onion tomato garlic spices ghee coriander"
+    },
+    {
+      "id": "R103",
+      "title": "Vegetable Pulao (Coconut Milk Version)",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "mixed vegetables",
+        "coconut milk",
+        "whole spices"
+      ],
+      "optional_ingredients": [
+        "cashews",
+        "curry leaves"
+      ],
+      "common_substitutions": {
+        "coconut milk": "regular milk (non-vegan) or water with less richness"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 4,
+      "instructions": [
+        "Saute whole spices in oil until fragrant.",
+        "Add vegetables, saute briefly.",
+        "Add rice and coconut milk instead of water, bring to boil.",
+        "Cover and simmer until rice is cooked, fluff and serve."
+      ],
+      "cooking_tips": [
+        "Coconut milk adds richness \u2014 reduce added salt slightly since coconut milk can be naturally sweet."
+      ],
+      "embedding_text": "Vegetable Pulao (Coconut Milk Version) Indian vegan vegetarian gluten-free dairy-free rice mixed vegetables coconut milk whole spices cashews curry leaves"
+    },
+    {
+      "id": "R104",
+      "title": "Egg Fried Noodles",
+      "cuisine": "Chinese",
+      "diet_tags": [
+        "non-vegetarian"
+      ],
+      "core_ingredients": [
+        "noodles",
+        "eggs",
+        "garlic",
+        "soy sauce",
+        "spring onion"
+      ],
+      "optional_ingredients": [
+        "mixed vegetables"
+      ],
+      "common_substitutions": {
+        "soy sauce": "tamari"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "servings": 3,
+      "instructions": [
+        "Boil noodles, drain and set aside.",
+        "Scramble eggs lightly, set aside.",
+        "Saute garlic and vegetables if using, add noodles and soy sauce, toss well.",
+        "Fold in scrambled egg, garnish with spring onion."
+      ],
+      "cooking_tips": [
+        "Scrambling eggs separately keeps them in distinct pieces rather than disappearing into the noodles."
+      ],
+      "embedding_text": "Egg Fried Noodles Chinese non-vegetarian noodles eggs garlic soy sauce spring onion mixed vegetables"
+    },
+    {
+      "id": "R105",
+      "title": "Vegetable Baked Beans on Toast",
+      "cuisine": "International",
+      "diet_tags": [
+        "vegetarian",
+        "vegan option"
+      ],
+      "core_ingredients": [
+        "baked beans",
+        "bread",
+        "onion"
+      ],
+      "optional_ingredients": [
+        "cheese",
+        "chili flakes"
+      ],
+      "common_substitutions": {
+        "baked beans": "boiled kidney beans in tomato sauce"
+      },
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 10,
+      "servings": 2,
+      "instructions": [
+        "Warm baked beans with sauteed onion.",
+        "Toast bread slices.",
+        "Pour beans over toast, top with cheese if using."
+      ],
+      "cooking_tips": [
+        "A fast, filling meal from mostly pantry-stable ingredients."
+      ],
+      "embedding_text": "Vegetable Baked Beans on Toast International vegetarian vegan option baked beans bread onion cheese chili flakes"
+    },
+    {
+      "id": "R106",
+      "title": "Vegetable Khichdi (One Pot)",
+      "cuisine": "Indian",
+      "diet_tags": [
+        "vegetarian",
+        "vegan",
+        "gluten-free"
+      ],
+      "core_ingredients": [
+        "rice",
+        "mixed lentils",
+        "mixed vegetables",
+        "turmeric",
+        "cumin seeds"
+      ],
+      "optional_ingredients": [
+        "ghee",
+        "ginger"
+      ],
+      "common_substitutions": {
+        "ghee": "oil"
+      },
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25,
+      "servings": 3,
+      "instructions": [
+        "Wash rice and lentils together.",
+        "Heat ghee/oil, temper cumin seeds.",
+        "Add vegetables and turmeric, saute briefly.",
+        "Add rice-lentil mix and water, pressure cook until soft.",
+        "Serve hot, optionally with a dollop of ghee."
+      ],
+      "cooking_tips": [
+        "A nourishing, easily digestible one-pot meal, great for using up various vegetables."
+      ],
+      "embedding_text": "Vegetable Khichdi (One Pot) Indian vegetarian vegan gluten-free rice mixed lentils mixed vegetables turmeric cumin seeds ghee ginger"
+    },
+    {
+      "id": "R107",
+      "title": "Sweet Potato Curry",
+      "cuisine": "Indian/Fusion",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "core_ingredients": [
+        "sweet potato",
+        "onion",
+        "tomato",
+        "coconut milk",
+        "spices"
+      ],
+      "optional_ingredients": [
+        "spinach",
+        "coriander"
+      ],
+      "common_substitutions": {
+        "coconut milk": "cream"
+      },
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 30,
+      "servings": 3,
+      "instructions": [
+        "Saute onion until golden.",
+        "Add tomato and spices, cook until soft.",
+        "Add cubed sweet potato and coconut milk, simmer until tender.",
+        "Stir in spinach if using, garnish and serve."
+      ],
+      "cooking_tips": [
+        "Sweet potatoes' natural sweetness pairs well with warming spices like cinnamon or cumin."
+      ],
+      "embedding_text": "Sweet Potato Curry Indian/Fusion vegan vegetarian gluten-free dairy-free sweet potato onion tomato coconut milk spices spinach coriander"
+    }
+  ]
+}
