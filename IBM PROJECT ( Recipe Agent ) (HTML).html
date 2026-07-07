@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartChef — Your Recipe Preparation Agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EBDA;
+    --paper-light:#FAF6EC;
+    --ink:#23231F;
+    --ink-soft:#5B564C;
+    --basil:#2F5233;
+    --basil-dark:#1E3A22;
+    --saffron:#E3A62F;
+    --saffron-dark:#B9800F;
+    --chili:#C1442B;
+    --line: rgba(35,35,31,0.14);
+    --radius: 4px;
+    --shadow-card: 0 2px 0 rgba(35,35,31,0.06), 0 12px 24px -12px rgba(35,35,31,0.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    color:var(--basil-dark);
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--basil-dark);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{display:flex; align-items:center; gap:10px; color:var(--paper-light); text-decoration:none;}
+  .brand-mark{
+    width:28px; height:28px; border-radius:50%;
+    background:var(--saffron); color:var(--basil-dark);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:700; font-size:15px;
+  }
+  .brand-name{font-family:'Fraunces', serif; font-weight:600; font-size:19px; letter-spacing:0.01em;}
+  .nav-links{display:flex; gap:28px; font-size:14px; font-weight:500;}
+  .nav-links a{color:rgba(250,246,236,0.75); text-decoration:none; transition:color .15s;}
+  .nav-links a:hover{color:var(--saffron);}
+  .nav-cta{
+    background:var(--saffron); color:var(--basil-dark);
+    padding:9px 18px; border-radius:2px; font-weight:600; font-size:14px;
+    border:none; cursor:pointer; font-family:inherit;
+  }
+  .nav-cta:hover{background:#f0b34a;}
+  @media (max-width:760px){.nav-links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:76px 0 96px; position:relative; overflow:hidden;}
+  .hero .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
+  @media (max-width:900px){.hero .wrap{grid-template-columns:1fr;}}
+
+  .hero-strip{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap:2px;
+    max-width:1120px;
+    margin:0 auto 8px;
+    padding:0 32px;
+  }
+  .hero-strip img{
+    width:100%; height:96px; object-fit:cover; display:block;
+    border-radius:2px; filter:saturate(1.05);
+  }
+  @media (max-width:760px){
+    .hero-strip{grid-template-columns:repeat(3, 1fr); gap:3px;}
+    .hero-strip img{height:78px;}
+  }
+  @media (max-width:640px){.hero-strip{padding:0 20px;}}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--basil); font-weight:500;
+    background:rgba(47,82,51,0.09); padding:6px 12px; border-radius:2px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:"●"; color:var(--saffron); font-size:9px;}
+  .hero h1{
+    font-size:clamp(38px, 5vw, 60px);
+    line-height:1.04;
+    font-weight:600;
+  }
+  .hero h1 em{font-style:italic; color:var(--chili); font-weight:500;}
+  .hero p.lede{
+    margin-top:22px; font-size:18px; line-height:1.6; color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--basil-dark); color:var(--paper-light);
+    padding:14px 26px; border-radius:2px; text-decoration:none;
+    font-weight:600; font-size:15px; border:none; cursor:pointer; font-family:inherit;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary:hover{background:#152a19;}
+  .btn-ghost{
+    padding:14px 22px; border-radius:2px; border:1px solid var(--line);
+    background:transparent; font-weight:600; font-size:15px; cursor:pointer;
+    font-family:inherit; color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--basil);}
+
+  /* recipe ticket mock in hero */
+  .ticket{
+    background:var(--paper-light);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-card);
+    position:relative;
+    padding:26px 26px 22px;
+  }
+  .ticket::before{
+    content:"";
+    position:absolute; top:-8px; left:0; right:0; height:16px;
+    background-image: radial-gradient(circle, var(--paper) 5px, transparent 5.5px);
+    background-size: 22px 16px;
+    background-position: 8px 0;
+  }
+  .ticket-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px dashed var(--line); padding-bottom:12px; margin-bottom:14px;}
+  .ticket-head .mono{font-size:11px; color:var(--ink-soft); letter-spacing:0.05em;}
+  .ticket-head h3{font-size:20px;}
+  .chat-line{display:flex; gap:10px; margin-bottom:14px; align-items:flex-start;}
+  .chat-line.user{justify-content:flex-end;}
+  .bubble{
+    max-width:78%; padding:10px 14px; border-radius:3px; font-size:14.5px; line-height:1.5;
+  }
+  .bubble.bot{background:rgba(47,82,51,0.08); color:var(--ink);}
+  .bubble.user{background:var(--basil-dark); color:var(--paper-light);}
+  .avatar{
+    width:26px; height:26px; border-radius:50%; flex:0 0 26px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700; font-family:'IBM Plex Mono', monospace;
+  }
+  .avatar.bot{background:var(--saffron); color:var(--basil-dark);}
+  .tag-row{display:flex; gap:8px; margin-top:16px; flex-wrap:wrap;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; padding:4px 9px;
+    border:1px solid var(--line); border-radius:2px; color:var(--ink-soft);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head .eyebrow{margin-bottom:16px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,40px); font-weight:600; line-height:1.1;}
+  .section-head p{color:var(--ink-soft); font-size:16.5px; margin-top:14px; line-height:1.6;}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  @media (max-width:760px){.steps{grid-template-columns:1fr;}}
+  .step{background:var(--paper-light); padding:34px 30px;}
+  .step .num{font-family:'IBM Plex Mono', monospace; color:var(--saffron-dark); font-weight:600; font-size:13px; letter-spacing:0.05em;}
+  .step h3{font-size:21px; margin-top:14px; font-weight:600;}
+  .step p{color:var(--ink-soft); font-size:15px; line-height:1.6; margin-top:10px;}
+
+  /* ---------- FEATURES ---------- */
+  .features{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  @media (max-width:760px){.features{grid-template-columns:1fr;}}
+  .feature-card{
+    background:var(--paper-light); border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px; box-shadow:var(--shadow-card);
+  }
+  .feature-card .icon{
+    width:38px; height:38px; border-radius:50%; background:var(--basil-dark);
+    color:var(--saffron); display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-weight:600; margin-bottom:16px;
+  }
+  .feature-card h3{font-size:18.5px; font-weight:600;}
+  .feature-card p{color:var(--ink-soft); font-size:14.5px; line-height:1.6; margin-top:8px;}
+
+  /* ---------- WORLD CUISINE GALLERY ---------- */
+  .cuisine{background:var(--basil-dark); color:var(--paper-light);}
+  .cuisine .eyebrow{background:rgba(255,255,255,0.08); color:var(--saffron);}
+  .cuisine .section-head h2{color:var(--paper-light);}
+  .cuisine .section-head p{color:rgba(250,246,236,0.72);}
+  .dish-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  @media (max-width:900px){.dish-grid{grid-template-columns:repeat(2, 1fr);}}
+  @media (max-width:560px){.dish-grid{grid-template-columns:1fr;}}
+  .dish-card{
+    position:relative;
+    border-radius:6px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    background:#152a19;
+    box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);
+  }
+  .dish-card img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:saturate(1.05);
+    transition:transform .5s ease;
+  }
+  .dish-card:hover img{transform:scale(1.06);}
+  .dish-card::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(15,26,17,0.92) 100%);
+  }
+  .dish-caption{
+    position:absolute; left:0; right:0; bottom:0; z-index:2;
+    padding:16px 16px 14px;
+  }
+  .dish-caption .country{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--saffron);
+  }
+  .dish-caption h3{
+    font-size:19px; color:var(--paper-light); margin-top:3px; font-weight:600;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#182016; color:rgba(250,246,236,0.55); padding:40px 0; font-size:13.5px;}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+
+  /* Chat UI is now provided by the embedded watsonx Orchestrate widget
+     (loaded via wxoLoader.js near the end of <body>), so no custom
+     chat-widget CSS lives here anymore. */
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">S</span>
+      <span class="brand-name">SmartChef</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#cuisine">World Cuisine</a>
+    </div>
+    <button class="nav-cta" onclick="openSmartChefChat()">Ask SmartChef</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Recipe Preparation Agent</span>
+      <h1>Tell it what's in your fridge.<br>Get a recipe, <em>step by step.</em></h1>
+      <p class="lede">SmartChef is a conversational cooking assistant. Ask for a dish, list your ingredients, or say what you're craving — the chatbot turns it into a full recipe with quantities, timing, and technique.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="openSmartChefChat()">Start cooking →</button>
+        <a href="#cuisine" class="btn-ghost">Browse world cuisine</a>
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-head">
+        <h3>Order #042</h3>
+        <span class="mono">SMARTCHEF · LIVE</span>
+      </div>
+      <div class="chat-line">
+        <span class="avatar bot">SC</span>
+        <div class="bubble bot">What do you have in the kitchen today?</div>
+      </div>
+      <div class="chat-line user">
+        <div class="bubble user">Chickpeas, spinach, and some coconut milk</div>
+      </div>
+      <div class="chat-line">
+        <span class="avatar bot">SC</span>
+        <div class="bubble bot">Try a coconut chickpea curry — 25 minutes, serves 3. Want the full method?</div>
+      </div>
+      <div class="tag-row">
+        <span class="tag">25 MIN</span>
+        <span class="tag">VEGAN</span>
+        <span class="tag">1 POT</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="hero-strip">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Margherita_pizza.jpg" alt="Margherita pizza" loading="lazy">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salmon_nigiri_sushi.jpg" alt="Nigiri sushi" loading="lazy">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chicken_makhani.jpg" alt="Butter chicken" loading="lazy">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tacos-al-Pastor.jpg" alt="Tacos al pastor" loading="lazy">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Paella_Valenciana.jpg" alt="Paella" loading="lazy">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bibimbap_7.jpg" alt="Bibimbap" loading="lazy">
+</div>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From pantry to plate in three exchanges</h2>
+      <p>No forms, no filters, no scrolling through ads. Just tell SmartChef what you want to cook.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01 / ASK</span>
+        <h3>Describe your craving</h3>
+        <p>Name a dish, an ingredient, or a mood — "something light with lentils" works as well as "chana masala."</p>
+      </div>
+      <div class="step">
+        <span class="num">02 / REFINE</span>
+        <h3>Adjust on the fly</h3>
+        <p>Swap ingredients, change servings, or ask for a quicker version. The agent rewrites the recipe in place.</p>
+      </div>
+      <div class="step">
+        <span class="num">03 / COOK</span>
+        <h3>Follow along, step by step</h3>
+        <p>Get numbered steps with timing built in, so you can ask "what's next" without losing your place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why SmartChef</span>
+      <h2>Built for the middle of cooking, not just before it</h2>
+    </div>
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">＋</div>
+        <h3>Ingredient-first search</h3>
+        <p>Type what's actually in your kitchen and get recipes that use it, rather than sending you shopping.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">↺</div>
+        <h3>Substitutions on request</h3>
+        <p>Out of an ingredient or cooking for an allergy? Ask for a swap and the recipe updates instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⏱</div>
+        <h3>Built-in timing</h3>
+        <p>Every step that needs waiting comes with a clear duration, so nothing overcooks while you're mid-conversation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⚙</div>
+        <h3>Powered by watsonx Orchestrate</h3>
+        <p>The chat launcher on this page connects live to a recipe agent built in IBM watsonx Orchestrate — no separate server required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cuisine" id="cuisine">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">From the SmartChef table</span>
+      <h2>Dishes from every corner of the map</h2>
+      <p>A small taste of what SmartChef can walk you through — ask for any of these by name, or describe what's in your kitchen and let the agent find something just as good.</p>
+    </div>
+    <div class="dish-grid">
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Margherita_pizza.jpg" alt="Margherita pizza" loading="lazy">
+        <div class="dish-caption"><span class="country">Italy</span><h3>Margherita Pizza</h3></div>
+      </div>
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salmon_nigiri_sushi.jpg" alt="Nigiri sushi" loading="lazy">
+        <div class="dish-caption"><span class="country">Japan</span><h3>Nigiri Sushi</h3></div>
+      </div>
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chicken_makhani.jpg" alt="Butter chicken" loading="lazy">
+        <div class="dish-caption"><span class="country">India</span><h3>Butter Chicken</h3></div>
+      </div>
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tacos-al-Pastor.jpg" alt="Tacos al pastor" loading="lazy">
+        <div class="dish-caption"><span class="country">Mexico</span><h3>Tacos al Pastor</h3></div>
+      </div>
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Croissant.jpg" alt="Croissant" loading="lazy">
+        <div class="dish-caption"><span class="country">France</span><h3>Croissant</h3></div>
+      </div>
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Paella_Valenciana.jpg" alt="Paella Valenciana" loading="lazy">
+        <div class="dish-caption"><span class="country">Spain</span><h3>Paella Valenciana</h3></div>
+      </div>
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Moroccan_tagine.jpg" alt="Moroccan tagine" loading="lazy">
+        <div class="dish-caption"><span class="country">Morocco</span><h3>Tagine</h3></div>
+      </div>
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bibimbap_7.jpg" alt="Bibimbap" loading="lazy">
+        <div class="dish-caption"><span class="country">Korea</span><h3>Bibimbap</h3></div>
+      </div>
+      <div class="dish-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chicken-pho-vietnamese-soup.JPG" alt="Vietnamese pho" loading="lazy">
+        <div class="dish-caption"><span class="country">Vietnam</span><h3>Chicken Phở</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SmartChef — Recipe Preparation Agent</span>
+    <span class="mono">Connected to watsonx Orchestrate</span>
+  </div>
+</footer>
+
+<!-- ==========================================================
+     IBM watsonx Orchestrate embedded web chat
+     Generated from Agent Preview → Customizable web chat.
+     This script loads IBM's own chat widget and connects it
+     directly to your SmartChef agent — no proxy, no API key
+     on this page. It renders its own floating launcher bubble
+     in the bottom-right corner.
+     ========================================================== -->
+<script>
+  window.wxOConfiguration = {
+    orchestrationID: "47d09b2f1eda42898ff7d089308305d6_dc9f62d2-7e80-4838-b32e-53f4092d8403",
+    hostURL: "https://au-syd.watson-orchestrate.cloud.ibm.com",
+    rootElementID: "root",
+    deploymentPlatform: "ibmcloud",
+    crn: "crn:v1:bluemix:public:watsonx-orchestrate:au-syd:a/47d09b2f1eda42898ff7d089308305d6:dc9f62d2-7e80-4838-b32e-53f4092d8403::",
+    chatOptions: {
+      agentId: "174ffcc5-3827-43f1-921b-6625bc2c79f3",
+      agentEnvironmentId: "6fa6c3d6-c74d-4633-9c36-40dd8a0153b7",
+    },
+    // Optional styling to match the SmartChef palette — safe to tweak or remove.
+    style: {
+      headerColor: "1E3A22",
+      primaryColor: "2F5233",
+      userMessageBackgroundColor: "1E3A22"
+    }
+  };
+  setTimeout(function () {
+    const script = document.createElement('script');
+    script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+    script.addEventListener('load', function () {
+      wxoLoader.init();
+    });
+    document.head.appendChild(script);
+  }, 0);
+
+  // Lets the "Ask SmartChef" buttons nudge the visitor toward the
+  // IBM launcher bubble in the corner (there's no public API yet to
+  // open it programmatically, so this scrolls to it instead).
+  function openSmartChefChat(){
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
