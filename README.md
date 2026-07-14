@@ -84,7 +84,7 @@ SmartChef-AI/
 │   ├── recipes.json
 │   ├── recipes.csv
 │   └── recipe_documents/
-│f
+│
 ```
 
 ## 🚀 How It Works
